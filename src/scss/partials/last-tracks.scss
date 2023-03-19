@@ -1,0 +1,130 @@
+.last-tracks {
+    width: 100%;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    margin-top: 180px;
+}
+
+.last-tracks__wrap {
+    display: flex;
+    width: 1110px;
+    height: 584px;
+}
+
+.last-tracks__image-block {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 510px;
+    height: 510px;
+    margin-right: 60px;
+}
+
+.last-tracks__tracks-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.last-tracks__last-tracks {
+    display: flex;
+}
+
+.last-tracks__circle {
+    position: absolute;
+    display: flex;
+}
+
+.last-tracks-icon {}
+
+.last-tracks__name {
+    width: 270px;
+    height: 72px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72px;
+    color: #fff;
+    margin-left: 30px;
+}
+
+.last-tracks__player {
+    display: flex;
+    width: 540px;
+    height: 27px;
+    margin-top: 60px;
+    align-items: center;
+}
+
+.play-track {
+    margin-left: 45px;
+    width: 317px;
+    height: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-playing {
+    width: 109px;
+    height: 27px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: right;
+    color: #fff;
+    margin-left: 47px;
+}
+
+.play-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.last-track__number {
+    width: 15px;
+    height: 21px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: #fff;
+    opacity: 0.5;
+    margin-right: 17px;
+}
+
+.last-track__name-track {
+    width: 505px;
+    height: 27px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.last-tracks__block-track {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.last-tracks__block-track:last-child {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+
+.last-tracks__playlist {
+    margin-top: 50px;
+}

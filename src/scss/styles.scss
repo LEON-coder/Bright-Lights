@@ -1,0 +1,21 @@
+@import url(partials/header.scss);
+@import url(partials/artist-background.scss);
+@import url(partials/bright-lights-biography.scss);
+@import url(partials/bright-lights-characteristics.scss);
+@import url(partials/last-tracks.scss);
+
+body {
+    width: 100%;
+    background: #1C1B21;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+@font-face {
+    font-family: 'poppins';
+    src: url(../../app/fonts/poppins/Poppinsregular.woff2);
+}

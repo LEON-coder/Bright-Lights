@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "browser-sync": "^2.27.12",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "imagemin": "^7.0.1",
+    "sass": "^1.58.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0"
+  }
+}

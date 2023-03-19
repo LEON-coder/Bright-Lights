@@ -1,0 +1,118 @@
+header {
+    display: flex;
+    width: 100%;
+    height: 1000px;
+    background-image: url("/app/img/header/header_back.jpg");
+    background-color: red;
+    justify-content: center;
+}
+
+.header__wrap {
+    display: flex;
+    width: 1110px;
+    flex-direction: column;
+}
+
+nav {
+    width: 920px;
+    display: flex;
+    height: 60px;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__logo {
+    display: flex;
+    align-items: baseline;
+}
+
+.nav__logo_text {
+    display: flex;
+    margin-left: 20px;
+}
+
+.nav__items {
+    display: flex;
+    list-style: none;
+    margin-left: 65px;
+}
+
+.nav__item {
+    margin-right: 56px;
+}
+
+.nav__item:last-child {
+    margin-right: 0;
+}
+
+.nav__item_link {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.header__main-block {
+    display: flex;
+    flex-direction: column;
+    margin-top: 322px;
+}
+
+.header__header {
+    width: 270px;
+    height: 72px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72px;
+    color: #FFFFFF;
+}
+
+.header__name-sing {
+    width: 655px;
+    height: 150px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 150px;
+    color: #FFFFFF;
+}
+
+.audio-player {
+    display: flex;
+    width: 1110px;
+    height: 27px;
+    background: 0 0;
+    align-items: center;
+}
+
+.audio-track {
+    width: 887px;
+    height: 0;
+    border: 2px solid #fff;
+    margin-left: 45px;
+    margin-right: 47px;
+}
+
+.play {
+    display: flex;
+}
+
+.time {
+    width: 109px;
+    height: 27px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: right;
+    color: #FFFFFF;
+}
