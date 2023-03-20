@@ -1,0 +1,133 @@
+.contacts-artist {
+    display: flex;
+    justify-content: center;
+}
+
+.contacts-artist__wrap {
+    display: flex;
+    width: 533px;
+    height: auto;
+    margin-top: 180px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.contacts-artist__img {
+    margin-right: 20px;
+}
+
+.contacts-artist__management-contacts-block {
+    display: flex;
+}
+
+.contacts-artist__management-contacts:first-child {
+    margin-left: 0;
+}
+
+.contacts-artist__management-contacts {
+    margin-top: 60px;
+    margin-left: 30px;
+}
+
+.artist-management-name {
+    width: 199px;
+    height: 54px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: right;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.artist-email-headline {
+    width: 199px;
+    height: 54px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: right;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.artist-name {
+    width: 304px;
+    height: 54px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.artist-email {
+    width: 304px;
+    height: 54px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.contacts-artist__social-block {
+    margin-top: 60px;
+    display: flex;
+}
+
+.contacts-artist__social-block_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 30px;
+}
+
+.contacts-artist__social-block_item:last-child {
+    margin-right: 0;
+}
+
+.contacts-artist__social-circle1 {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.contacts-artist__social-circle2 {
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+
+.contacts-artist__social-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyrights {
+    width: 166px;
+    height: 20px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.5;
+    margin-top: 100px;
+}
