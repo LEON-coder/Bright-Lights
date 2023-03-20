@@ -94,6 +94,57 @@
     margin-right: 30px;
 }
 
+.contacts-artist__social-block_item:hover .contacts-artist__social-circle1 {
+    animation: animationSocial 1s infinite;
+    -webkit-animation: animationSocial 1s infinite;
+}
+
+@keyframes animationSocial {
+    from {
+        opacity: 0
+    }
+
+    10% {
+        opacity: .2;
+    }
+
+    20% {
+        opacity: .4;
+    }
+
+    30% {
+        opacity: .6;
+    }
+
+    40% {
+        opacity: .8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: .8;
+    }
+
+    70% {
+        opacity: .6;
+    }
+
+    80% {
+        opacity: .4;
+    }
+
+    90% {
+        opacity: .2;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .contacts-artist__social-block_item:last-child {
     margin-right: 0;
 }
