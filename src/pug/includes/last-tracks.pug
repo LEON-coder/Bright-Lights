@@ -8,25 +8,30 @@
 
     .last-tracks__tracks-block
       .last-tracks__last-tracks
-        img.last-tracks-icon(src="../../../app/img/last-tracks/icon.png")
+        img.last-tracks-icon(src="../../../app/img/last-tracks/icon.png" alt="")
         p.last-tracks__name Last tracks
 
       .last-tracks__player
-        img.play-icon(src="../../../app/img/last-tracks/play-icon.svg" alt="")
-        img.play-track(src="../../../app/img/last-tracks/player_track.png" alt="")
-        .time-playing 00:47-03:30
+        audio#audio(src="../../../app/music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3")
+        #controls
+          .button-play
+            img(src="../../../app/img/last-tracks/play-icon.svg" alt="")          
+          .audio-track
+            .time            
+          .time-playing 
 
       .last-tracks__playlist
-        .last-tracks__block-track
+        a.last-tracks__block-track
           .last-track__number  01
           .last-track__name-track 3LAU, Bright Lights — How You Love Me
-        .last-tracks__block-track
+
+        a.last-tracks__block-track
           .last-track__number  02
           .last-track__name-track Bright Lights, Kaleena Zanders, Kandy — War For Love
-        .last-tracks__block-track
+        a.last-tracks__block-track
           .last-track__number  03
           .last-track__name-track Pink Is Punk, Benny Benassi, Bright Lights — Ghost
-        .last-tracks__block-track
+        a.last-tracks__block-track
           .last-track__number  04
           .last-track__name-track Hardwell, Dyro, Bright Lights — Never Say Goodbye
         .last-tracks__block-track

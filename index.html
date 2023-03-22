@@ -24,8 +24,8 @@
         <p class="header__header">New Single</p>
         <p class="header__name-sing">War For Love</p>
         <div class="audio-player"><img class="play" src="../../../app/img/header/player/play_icon.svg">
-          <div class="audio-track"></div>
-          <div class="time">00:22-02:54</div>
+          <div class="header-audio-track"></div>
+          <div class="time-header">00:22-02:54</div>
         </div>
       </div>
     </div>
@@ -108,29 +108,28 @@
     <div class="last-tracks__wrap">
       <div class="last-tracks__image-block"><img class="last-tracks__circle-1" src="../../../app/img/last-tracks/Ellipse 3.png"><img class="last-tracks__circle-2" src="../../../app/img/last-tracks/Group 10.png"><img class="last-tracks__circle-3" src="../../../app/img/last-tracks/Ellipse 4-photo.png"></div>
       <div class="last-tracks__tracks-block">
-        <div class="last-tracks__last-tracks"><img class="last-tracks-icon" src="../../../app/img/last-tracks/icon.png">
+        <div class="last-tracks__last-tracks"><img class="last-tracks-icon" src="../../../app/img/last-tracks/icon.png" alt="">
           <p class="last-tracks__name">Last tracks</p>
         </div>
-        <div class="last-tracks__player"><img class="play-icon" src="../../../app/img/last-tracks/play-icon.svg" alt=""><img class="play-track" src="../../../app/img/last-tracks/player_track.png" alt="">
-          <div class="time-playing">00:47-03:30</div>
+        <div class="last-tracks__player">
+          <audio id="audio" src="../../../app/music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3"></audio>
+          <div id="controls">
+            <div class="button-play"><img src="../../../app/img/last-tracks/play-icon.svg" alt=""></div>
+            <div class="audio-track">
+              <div class="time">           </div>
+            </div>
+            <div class="time-playing"> </div>
+          </div>
         </div>
-        <div class="last-tracks__playlist">
-          <div class="last-tracks__block-track">
+        <div class="last-tracks__playlist"><a class="last-tracks__block-track">
             <div class="last-track__number"> 01</div>
-            <div class="last-track__name-track">3LAU, Bright Lights — How You Love Me</div>
-          </div>
-          <div class="last-tracks__block-track">
+            <div class="last-track__name-track">3LAU, Bright Lights — How You Love Me</div></a><a class="last-tracks__block-track">
             <div class="last-track__number"> 02</div>
-            <div class="last-track__name-track">Bright Lights, Kaleena Zanders, Kandy — War For Love</div>
-          </div>
-          <div class="last-tracks__block-track">
+            <div class="last-track__name-track">Bright Lights, Kaleena Zanders, Kandy — War For Love</div></a><a class="last-tracks__block-track">
             <div class="last-track__number"> 03</div>
-            <div class="last-track__name-track">Pink Is Punk, Benny Benassi, Bright Lights — Ghost</div>
-          </div>
-          <div class="last-tracks__block-track">
+            <div class="last-track__name-track">Pink Is Punk, Benny Benassi, Bright Lights — Ghost</div></a><a class="last-tracks__block-track">
             <div class="last-track__number"> 04</div>
-            <div class="last-track__name-track">Hardwell, Dyro, Bright Lights — Never Say Goodbye</div>
-          </div>
+            <div class="last-track__name-track">Hardwell, Dyro, Bright Lights — Never Say Goodbye</div></a>
           <div class="last-tracks__block-track">
             <div class="last-track__number"> 05</div>
             <div class="last-track__name-track">Zeds Dead, Dirtyphonics, Bright Lights — Where Are You Now</div>
@@ -205,16 +204,10 @@
           <p class="artist-email">jake@brightlightsofficial.com</p>
         </div>
       </div>
-      <ul class="contacts-artist__social-block">
-        <li class="contacts-artist__social-block_item"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/apple-icon.png"></li>
-        <li class="contacts-artist__social-block_item"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/spotify-icon.svg"></li>
-        <li class="contacts-artist__social-block_item"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/instagram-icon.svg"></li>
-        <li class="contacts-artist__social-block_item"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/youtube-icon.svg"></li>
-        <li class="contacts-artist__social-block_item"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/twitter-icon.svg"></li>
-        <li class="contacts-artist__social-block_item"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/facebook-icon.svg"></li>
-      </ul>
+      <div class="contacts-artist__social-block"><a class="contacts-artist__social-block_item" href="https://artists.apple.com"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/apple-icon.png"></a><a class="contacts-artist__social-block_item" href="https://artists.spotify.com/home"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/spotify-icon.svg"></a><a class="contacts-artist__social-block_item" href="http://instagram.com"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/instagram-icon.svg"></a><a class="contacts-artist__social-block_item" href="https://www.youtube.com"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/youtube-icon.svg"><a href="https://www.youtube.com"></a></a><a class="contacts-artist__social-block_item" href="https://twitter.com"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/twitter-icon.svg"></a><a class="contacts-artist__social-block_item" href="https://facebook.com"><img class="contacts-artist__social-circle1" src="../../../app/img/contacts-artist/social-block/grey-circle.png"><img class="contacts-artist__social-circle2" src="../../../app/img/contacts-artist/social-block/crimson-circle.png"><img class="contacts-artist__social-icon" src="../../../app/img/contacts-artist/social-block/facebook-icon.svg"></a></div>
       <p class="copyrights">©  2020 DJ bright lights.</p>
     </div>
   </div>
-  <script src="app/js/main.js"></script>
+  <script src="app/js/avatars.js"></script>
+  <script src="app/js/music-player.js"></script>
 </body>
