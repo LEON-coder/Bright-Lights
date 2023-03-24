@@ -135,7 +135,7 @@
     line-height: 27px;
     text-align: right;
     color: #fff;
-    margin-left: 47px;
+
 }
 
 .time {
@@ -152,7 +152,6 @@
     width: 540px;
     height: 27px;
     align-items: center;
-    justify-content: center;
 }
 
 .button-play {
@@ -266,4 +265,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.last-tracks__block-track:hover .last-track__name-track {
+    color: #7A66CC;
 }

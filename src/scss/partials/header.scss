@@ -101,11 +101,27 @@ nav {
     margin-right: 47px;
 }
 
+#controls-header {
+    display: flex;
+    align-items: center;
+}
+
 .play {
     display: flex;
 }
 
 .time-header {
+    height: 27px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.header-playing {
     width: 109px;
     height: 27px;
     font-family: 'Poppins';

@@ -23,9 +23,13 @@
       <div class="header__main-block">
         <p class="header__header">New Single</p>
         <p class="header__name-sing">War For Love</p>
-        <div class="audio-player"><img class="play" src="../../../app/img/header/player/play_icon.svg">
-          <div class="header-audio-track"></div>
-          <div class="time-header">00:22-02:54</div>
+        <div class="audio-player">
+          <audio id="audio-header" src="../../../app/music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3"></audio>
+          <div id="controls-header">
+            <div class="button-play-header"><img src="../../../app/img/header/player/play_icon.svg" alt=""></div>
+            <div class="header-audio-track"></div>
+            <div class="time-header"> </div>
+          </div>
         </div>
       </div>
     </div>
@@ -116,14 +120,15 @@
           <div id="controls">
             <div class="button-play"><img src="../../../app/img/last-tracks/play-icon.svg" alt=""></div>
             <div class="audio-track">
-              <div class="time">           </div>
+              <div class="time">  </div>
             </div>
-            <div class="time-playing"> </div>
+            <div class="time-playing">         </div>
           </div>
         </div>
-        <div class="last-tracks__playlist"><a class="last-tracks__block-track">
+        <div class="last-tracks__playlist"><a class="last-tracks__block-track button-play">
             <div class="last-track__number"> 01</div>
-            <div class="last-track__name-track">3LAU, Bright Lights — How You Love Me</div></a><a class="last-tracks__block-track">
+            <div class="last-track__name-track">3LAU, Bright Lights — How You Love Me</div></a>
+          <audio id="audio" src="../../../app/music/Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp33"></audio><a class="last-tracks__block-track">
             <div class="last-track__number"> 02</div>
             <div class="last-track__name-track">Bright Lights, Kaleena Zanders, Kandy — War For Love</div></a><a class="last-tracks__block-track">
             <div class="last-track__number"> 03</div>
@@ -210,4 +215,5 @@
   </div>
   <script src="app/js/avatars.js"></script>
   <script src="app/js/music-player.js"></script>
+  <script src="app/js/header-music-player.js"></script>
 </body>
