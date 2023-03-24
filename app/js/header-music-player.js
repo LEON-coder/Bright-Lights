@@ -1,7 +1,8 @@
 
 let audioHeader = document.getElementById("audio-header");    // Берём элемент audio
 let timeHeader = document.querySelector(".time-header");      // Берём аудио дорожку
-let buttonPlayHeader = document.querySelector(".button-play-header");  // Берём кнопку проигрывания
+let buttonPlayHeader = document.querySelector(".button-play-header");
+let timeHeaderPlaying = document.querySelector(".time-header-playing")  // Берём кнопку проигрывания
 // let volumeLevel = document.getElementById("volume-level");
 
 
@@ -32,7 +33,7 @@ buttonPlayHeader.addEventListener("click" , function() {
 	  
 	});
           audioHeader.addEventListener('timeupdate', function() {
-            timeHeader.innerHTML = secondsToTime(audioHeader.currentTime);
+            timeHeaderPlaying.innerHTML = secondsToTime(audioHeader.currentTime);
         }, false);
 
 

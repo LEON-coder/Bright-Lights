@@ -95,11 +95,13 @@ nav {
 
 .header-audio-track {
     width: 887px;
-    height: 0;
-    border: 2px solid #fff;
+    height: 2px;
+    background: #fff;
     margin-left: 45px;
     margin-right: 47px;
 }
+
+
 
 #controls-header {
     display: flex;
@@ -111,17 +113,17 @@ nav {
 }
 
 .time-header {
-    height: 27px;
-    font-family: 'Poppins';
+    height: 3px;
+    font-family: Poppins;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
     text-align: right;
-    color: #FFFFFF;
+    background: #7a66cc;
 }
 
-.header-playing {
+.time-header-playing {
     width: 109px;
     height: 27px;
     font-family: 'Poppins';
