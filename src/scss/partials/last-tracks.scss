@@ -126,7 +126,6 @@
 }
 
 .time-playing {
-    width: 110px;
     height: 27px;
     font-family: Poppins;
     font-style: normal;
@@ -135,7 +134,7 @@
     line-height: 27px;
     text-align: right;
     color: #fff;
-
+    margin-left: 45px;
 }
 
 .time {
@@ -197,11 +196,69 @@
     color: #FFFFFF;
 }
 
+.active-button {
+    color: #7a66cc;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    animation: CrimsonTrackPulse 2s infinite;
+    -webkit-animation: CrimsonTrackPulse 2s infinite;
+}
+
+
+@keyframes CrimsonTrackPulse {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 20%;
+    }
+
+    20% {
+        opacity: 40%;
+    }
+
+    30% {
+        opacity: 60%;
+    }
+
+    40% {
+        opacity: 80%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    60% {
+        opacity: 80%;
+    }
+
+    70% {
+        opacity: 60%;
+    }
+
+    80% {
+        opacity: 40%;
+    }
+
+    90% {
+        opacity: 20%;
+    }
+
+    100% {
+        opacity: 10%;
+    }
+}
+
 .last-tracks__block-track {
     display: flex;
-    justify-self: center;
     align-items: center;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .last-tracks__block-track:last-child {
@@ -265,8 +322,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.last-tracks__block-track:hover .last-track__name-track {
-    color: #7A66CC;
 }
