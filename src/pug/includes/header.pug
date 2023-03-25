@@ -21,7 +21,12 @@ header
       p.header__header New Single
       p.header__name-sing War For Love
       .audio-player
-        img.play(src="../../../app/img/header/player/play_icon.svg")       
-        .header-audio-track
-        .time-header 00:22-02:54
+        audio#audio-header(src="../../../app/music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3")
+        #controls-header
+          .button-play-header
+            img(src="../../../app/img/header/player/play_icon.svg" alt="")       
+          .header-audio-track           
+            .time-header 
+          .time-header-playing 
+
 
