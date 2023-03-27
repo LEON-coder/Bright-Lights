@@ -1,20 +1,86 @@
 .bright-lights-slider
-	.bright-lights-slider__wrap
-		.bright-lights-slider__slider
-			img.slider-pic(src="../../../app/img/bright-lights-slider/picture.png" alt="")
-			h3.bright-lights-slider__location Chandler, AZ
-			h4.bright-lights-slider__name The Park at Wild Horse Pass
-			data Apr 02 2021
-			a.bright-lights-slider__tickets tickets
-		.bright-lights-slider__slider
-			img.slider-pic(src="../../../app/img/bright-lights-slider/picture-2.png" alt="")
-			h3.bright-lights-slider__location Ibiza, IBZ
-			h4.bright-lights-slider__name Swag Ibiza Club
-			data Jul 08 2021
-			a.bright-lights-slider__tickets tickets
-		.bright-lights-slider__slider
-			img.slider-pic(src="../../../app/img/bright-lights-slider/picture-3.png" alt="")
-			h3.bright-lights-slider__location Ibiza, IBZ
-			h4.bright-lights-slider__name Swag Ibiza Club
-			data Jul 10 2021
-			a.bright-lights-slider__tickets tickets
+  .bright-lights-slider__wrap
+    .bright-lights-slider__slider-block#slides
+      #overflow
+        .image
+          article
+            .bright-lights-slider__slider
+              img.slider-pic(src="app/img/bright-lights-slider/picture.png" alt="")
+              h3.bright-lights-slider__location Chandler, AZ
+              h4.bright-lights-slider__name The Park at Wild Horse Pass
+              data Apr 02 2021
+              a.bright-lights-slider__tickets tickets
+            .bright-lights-slider__slider
+              img.slider-pic(src="app/img/bright-lights-slider/picture-2.png" alt="")
+              h3.bright-lights-slider__location Ibiza, IBZ
+              h4.bright-lights-slider__name Swag Ibiza Club
+              data Jul 08 2021
+              a.bright-lights-slider__tickets tickets
+            .bright-lights-slider__slider.bright-lights-slider__slider_margin-right
+              img.slider-pic(src="app/img/bright-lights-slider/picture-3.png" alt="")
+              h3.bright-lights-slider__location Ibiza, IBZ
+              h4.bright-lights-slider__name Swag Ibiza Club
+              data Jul 10 2021
+              a.bright-lights-slider__tickets tickets
+
+          article
+            .bright-lights-slider__slider
+              img.slider-pic(src="app/img/bright-lights-slider/picture.png" alt="")
+              h3.bright-lights-slider__location Chandler, AZ
+              h4.bright-lights-slider__name The Park at Wild Horse Pass
+              data Apr 02 2021
+              a.bright-lights-slider__tickets tickets
+            .bright-lights-slider__slider
+              img.slider-pic(src="app/img/bright-lights-slider/picture-2.png" alt="")
+              h3.bright-lights-slider__location Ibiza, IBZ
+              h4.bright-lights-slider__name Swag Ibiza Club
+              data Jul 08 2021
+              a.bright-lights-slider__tickets tickets
+            .bright-lights-slider__slider.bright-lights-slider__slider_margin-right
+              img.slider-pic(src="app/img/bright-lights-slider/picture-3.png" alt="")
+              h3.bright-lights-slider__location Ibiza, IBZ
+              h4.bright-lights-slider__name Swag Ibiza Club
+              data Jul 10 2021
+              a.bright-lights-slider__tickets tickets
+
+          article
+            .bright-lights-slider__slider
+              img.slider-pic(src="app/img/bright-lights-slider/picture.png" alt="")
+              h3.bright-lights-slider__location Chandler, AZ
+              h4.bright-lights-slider__name The Park at Wild Horse Pass
+              data Apr 02 2021
+              a.bright-lights-slider__tickets tickets
+            .bright-lights-slider__slider
+              img.slider-pic(src="app/img/bright-lights-slider/picture-2.png" alt="")
+              h3.bright-lights-slider__location Ibiza, IBZ
+              h4.bright-lights-slider__name Swag Ibiza Club
+              data Jul 08 2021
+              a.bright-lights-slider__tickets tickets
+            .bright-lights-slider__slider.bright-lights-slider__slider_margin-right
+              img.slider-pic(src="app/img/bright-lights-slider/picture-3.png" alt="")
+              h3.bright-lights-slider__location Ibiza, IBZ
+              h4.bright-lights-slider__name Swag Ibiza Club
+              data Jul 10 2021
+              a.bright-lights-slider__tickets tickets
+
+    #controls
+      label(for="switch1")
+      label(for="switch2")
+      label(for="switch3")
+      label(for="switch4")
+
+    #active
+      label(for="switch1")
+      label(for="switch2")
+      label(for="switch3")
+      label(for="switch4")
+
+    .bright-lights-slider__control
+      .bright-lights-slider__left-block
+        img.left-arrow(src="app/img/bright-lights-slider/arrow--left.svg" alt="")
+        img.arrow-frame(src="app/img/bright-lights-slider/frame__arrow.svg" alt="")
+label.numb1(for="slider1")
+
+      .bright-lights-slider__right-block
+        img.right-arrow(src="app/img/bright-lights-slider/arrow--right.svg" alt="")
+        img.arrow-frame(src="app/img/bright-lights-slider/frame__arrow.svg" alt="")
