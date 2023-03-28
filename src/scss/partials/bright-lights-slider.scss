@@ -4,13 +4,8 @@
     align-items: center;
     margin-top: 180px;
     flex-direction: column;
-}
-
-.bright-lights-slider__slider-block {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 473px;
+    overflow: hidden;
 }
 
 .bright-lights-slider {
@@ -18,82 +13,9 @@
     justify-content: center;
 }
 
-#overflow {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 473px;
-}
-
 article {
     display: flex;
 }
-
-article:nth-child(1) {
-    margin-left: 0;
-}
-
-article:nth-child(2) {
-    margin-left: 100px;
-}
-
-article:nth-child(3) {
-    margin-left: 100px;
-}
-
-#overflow {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#switch1:checked~#controls label:nth-child(5),
-#switch2:checked~#controls label:nth-child(1),
-#switch3:checked~#controls label:nth-child(2),
-#switch4:checked~#controls label:nth-child(3) {
-    background: url("../../../app/img/bright-lights-slider/arrow--left.svg");
-    float: left;
-    margin: 0 0 0 -84px;
-    display: block;
-
-}
-
-#switch1:checked~#controls label:nth-child(2),
-#switch2:checked~#controls label:nth-child(3),
-#switch3:checked~#controls label:nth-child(4),
-#switch5:checked~#controls label:nth-child(1) {
-    background: url("../../../app/img/bright-lights-slider/arrow--right.svg");
-    float: right;
-    margin: 0 0 0 -84px;
-    display: block;
-
-}
-
-
-#switch1:checked~#slides .image {
-    margin-left: 0;
-}
-
-#switch2:checked~#slides .image {
-    margin-left: -100%;
-}
-
-#switch3:checked~#slides .image {
-    margin-left: -200%;
-}
-
-#switch4:checked~#slides .image {
-    margin-left: -300%;
-}
-
-#switch5:checked~#slides .image {
-    margin-left: -400%;
-}
-
 
 .bright-lights-slider__slider {
     display: flex;
@@ -112,35 +34,6 @@ article:nth-child(3) {
 
 .bright-lights-slider__slider_margin-right {
     margin-right: 0;
-}
-
-
-@keyframes slider {
-    20% {
-        position: absolute;
-        left: 0;
-    }
-
-    40% {
-        position: absolute;
-        left: -100%;
-    }
-
-    60% {
-        position: absolute;
-        left: -200%;
-    }
-
-    80% {
-        position: absolute;
-        left: -300%;
-    }
-
-    100% {
-        position: absolute;
-        left: 0;
-    }
-
 }
 
 .slider-pic {
@@ -252,18 +145,6 @@ data {
     border-radius: 10px 0px;
 }
 
-/* Slider wrapper*/
-.css-slider-wrapper {
-    display: flex;
-    background: #FFF;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-
 /* Slider */
 .slider {
     width: 100%;
@@ -307,8 +188,11 @@ data {
     left: 300%;
 }
 
-.slider>div {
-    text-align: center;
+.article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Slider inner slide effect */
@@ -345,73 +229,8 @@ data {
     transition-delay: 1s;
 }
 
-/* Next and Preive arrow */
-.control {
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
-    z-index: 55;
-}
-
-.control label {
-    z-index: 0;
-    display: none;
-    text-align: center;
-    line-height: 50px;
-    font-size: 50px;
-    color: #FFF;
-    cursor: pointer;
-    opacity: 0.2;
-}
-
 .control label:hover {
     opacity: 0.5;
-}
-
-.next {
-    right: 1%;
-}
-
-.previous {
-    left: 1%;
-}
-
-.slider-pagination label {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 0 2px;
-    border: solid 1px rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-}
-
-/* Slider Pagger arrow event */
-.slide-radio1:checked~.next .numb2,
-.slide-radio2:checked~.next .numb3,
-.slide-radio3:checked~.next .numb4,
-.slide-radio2:checked~.previous .numb1,
-.slide-radio3:checked~.previous .numb2,
-.slide-radio4:checked~.previous .numb3 {
-    display: block;
-    z-index: 1
-}
-
-/* Slider Pagger event */
-.slide-radio1:checked~.slider-pagination .page1,
-.slide-radio2:checked~.slider-pagination .page2,
-.slide-radio3:checked~.slider-pagination .page3,
-.slide-radio4:checked~.slider-pagination .page4 {
-    background: rgba(255, 255, 255, 1)
-}
-
-/* Slider slide effect */
-.slide-radio1:checked~.slider {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
 }
 
 .slide-radio2:checked~.slider {
@@ -427,19 +246,6 @@ data {
 .slide-radio4:checked~.slider {
     -webkit-transform: translateX(-300%);
     transform: translateX(-300%);
-}
-
-.slide-radio1:checked~.slide1 h2,
-.slide-radio2:checked~.slide2 h2,
-.slide-radio3:checked~.slide3 h2,
-.slide-radio4:checked~.slide4 h2,
-.slide-radio1:checked~.slide1 .button,
-.slide-radio2:checked~.slide2 .button,
-.slide-radio3:checked~.slide3 .button,
-.slide-radio4:checked~.slide4 .button {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1
 }
 
 .clearfix:after {
@@ -464,15 +270,6 @@ data {
     display: block;
 }
 
-
-.bright-lights-slider__wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 180px;
-    flex-direction: column;
-    height: 473px;
-}
 
 .bright-lights-slider__slider-block {
     position: relative;
@@ -502,29 +299,6 @@ article:nth-child(3) {
     margin-left: 100px;
 }
 
-
-
-#switch1:checked~#controls label:nth-child(5),
-#switch2:checked~#controls label:nth-child(1),
-#switch3:checked~#controls label:nth-child(2),
-#switch4:checked~#controls label:nth-child(3) {
-    background: url("../../../app/img/bright-lights-slider/arrow--left.svg");
-    float: left;
-    margin: 0 0 0 -84px;
-    display: block;
-
-}
-
-#switch1:checked~#controls label:nth-child(2),
-#switch2:checked~#controls label:nth-child(3),
-#switch3:checked~#controls label:nth-child(4),
-#switch5:checked~#controls label:nth-child(1) {
-    background: url("../../../app/img/bright-lights-slider/arrow--right.svg");
-    float: right;
-    margin: 0 0 0 -84px;
-    display: block;
-
-}
 
 .bright-lights-slider__slider {
     display: flex;
