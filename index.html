@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bright Light</title>
   <link rel="stylesheet" href="app/css/styles.css">
-</head>
+  <link rel="stylesheet" href="app/slider/slider.css">
+  </head>
 <body>
   <header>
     <div class="header__wrap"> 
       <nav>
-        <div class="nav__logo"><img class="nav__logo_pic" src="./app/img/header/nav-logo.svg"><img class="nav__logo_text" src="./app/img/header/nav-logo-text.png"></div>
+        <div class="nav__logo"><img class="nav__logo_pic" src="./app/img/header/nav-logo.svg" alt=""><img class="nav__logo_text" src="./app/img/header/nav-logo-text.png"></div>
         <ul class="nav__items"> 
           <li class="nav__item"><a class="nav__item_link" href="#">About </a></li>
           <li class="nav__item"><a class="nav__item_link" href="#">News </a></li>
@@ -179,92 +180,122 @@
       </div>
     </div>
   </div>
+
+
+  
   <div class="bright-lights-slider">
     <div class="bright-lights-slider__wrap">
       <div class="bright-lights-slider__slider-block" id="slides">
         <div id="overflow">
-          <div class="image">
-            <article>
-              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture.png" alt="">
-                <h3 class="bright-lights-slider__location">Chandler, AZ</h3>
-                <h4 class="bright-lights-slider__name">The Park at Wild Horse Pass</h4>
-                <data>Apr 02 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture-2.png" alt="">
-                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
-                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
-                <data>Jul 08 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-              <div class="bright-lights-slider__slider bright-lights-slider__slider_margin-right"><img class="slider-pic" src="app/img/bright-lights-slider/picture-3.png" alt="">
-                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
-                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
-                <data>Jul 10 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-            </article>
-            <article>
-              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture.png" alt="">
-                <h3 class="bright-lights-slider__location">Chandler, AZ</h3>
-                <h4 class="bright-lights-slider__name">The Park at Wild Horse Pass</h4>
-                <data>Apr 02 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture-2.png" alt="">
-                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
-                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
-                <data>Jul 08 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-              <div class="bright-lights-slider__slider bright-lights-slider__slider_margin-right"><img class="slider-pic" src="app/img/bright-lights-slider/picture-3.png" alt="">
-                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
-                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
-                <data>Jul 10 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-            </article>
-            <article>
-              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture.png" alt="">
-                <h3 class="bright-lights-slider__location">Chandler, AZ</h3>
-                <h4 class="bright-lights-slider__name">The Park at Wild Horse Pass</h4>
-                <data>Apr 02 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture-2.png" alt="">
-                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
-                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
-                <data>Jul 08 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-              <div class="bright-lights-slider__slider bright-lights-slider__slider_margin-right"><img class="slider-pic" src="app/img/bright-lights-slider/picture-3.png" alt="">
-                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
-                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
-                <data>Jul 10 2021</data><a class="bright-lights-slider__tickets">tickets</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-      <div id="controls">
-        <label for="switch1"></label>
-        <label for="switch2"></label>
-        <label for="switch3"></label>
-        <label for="switch4"></label>
-      </div>
-      <div id="active">
-        <label for="switch1"></label>
-        <label for="switch2"></label>
-        <label for="switch3"></label>
-        <label for="switch4"></label>
-      </div>
-      <div class="bright-lights-slider__control">
-        <div class="bright-lights-slider__left-block">
-          <img class="left-arrow" src="app/img/bright-lights-slider/arrow--left.svg" alt="">
-          <img class="arrow-frame" src="app/img/bright-lights-slider/frame__arrow.svg" alt="">
-        </div>
-          <div class="bright-lights-slider__right-block">
-      <img class="right-arrow" src="app/img/bright-lights-slider/arrow--right.svg" alt="">
-      <img class="arrow-frame" src="app/img/bright-lights-slider/frame__arrow.svg" alt="">
-    </div>
-      </div>
-    </div>
+<div class="image">
+<div class="css-slider-wrapper">
+  <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
+  <input type="radio" name="slider" class="slide-radio2" id="slider_2">
+  <input type="radio" name="slider" class="slide-radio3" id="slider_3">
+  <input type="radio" name="slider" class="slide-radio4" id="slider_4">
+  <div class="slider-pagination">
+    <label for="slider_1" class="page1"></label>
+    <label for="slider_2" class="page2"></label>
+    <label for="slider_3" class="page3"></label>
+    <label for="slider_4" class="page4"></label>
   </div>
-  <label for="slider1">
-    
-  </label>
+  <div class="next control">
+    <label for="slider_1" class="numb1"><i class="fa fa-arrow-circle-right"></i></label>
+    <label for="slider_2" class="numb2"><i class="fa fa-arrow-circle-right"></i></label>
+    <label for="slider_3" class="numb3"><i class="fa fa-arrow-circle-right"></i></label>
+    <label for="slider_4" class="numb4"><i class="fa fa-arrow-circle-right"></i></label>
+  </div>
+  <div class="previous control">
+    <label for="slider_1" class="numb1"><i class="fa fa-arrow-circle-left"></i></label>
+    <label for="slider_2" class="numb2"><i class="fa fa-arrow-circle-left"></i></label>
+    <label for="slider_3" class="numb3"><i class="fa fa-arrow-circle-left"></i></label>
+    <label for="slider_4" class="numb4"><i class="fa fa-arrow-circle-left"></i></label>
+  </div>
+  <div class="slider slide1">
+    <div class="article">
+       <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture.png" alt="">
+                <h3 class="bright-lights-slider__location">Chandler, AZ</h3>
+                <h4 class="bright-lights-slider__name">The Park at Wild Horse Pass</h4>
+                <data>Apr 02 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture-2.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 08 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider bright-lights-slider__slider_margin-right"><img class="slider-pic" src="app/img/bright-lights-slider/picture-3.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 10 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+  </div>
+  </div>
+  <div class="slider slide2">
+     <div class="article">
+    <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture.png" alt="">
+                <h3 class="bright-lights-slider__location">Chandler, AZ</h3>
+                <h4 class="bright-lights-slider__name">The Park at Wild Horse Pass</h4>
+                <data>Apr 02 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture-2.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 08 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider bright-lights-slider__slider_margin-right"><img class="slider-pic" src="app/img/bright-lights-slider/picture-3.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 10 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+  </div>
+</div>
+
+
+  <div class="slider slide3">
+         <div class="article">
+    <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture.png" alt="">
+                <h3 class="bright-lights-slider__location">Chandler, AZ</h3>
+                <h4 class="bright-lights-slider__name">The Park at Wild Horse Pass</h4>
+                <data>Apr 02 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture-2.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 08 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider bright-lights-slider__slider_margin-right"><img class="slider-pic" src="app/img/bright-lights-slider/picture-3.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 10 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+  </div>
+  </div>
+
+
+  <div class="slider slide4">
+     <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture.png" alt="">
+                <h3 class="bright-lights-slider__location">Chandler, AZ</h3>
+                <h4 class="bright-lights-slider__name">The Park at Wild Horse Pass</h4>
+                <data>Apr 02 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider"><img class="slider-pic" src="app/img/bright-lights-slider/picture-2.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 08 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+              <div class="bright-lights-slider__slider bright-lights-slider__slider_margin-right"><img class="slider-pic" src="app/img/bright-lights-slider/picture-3.png" alt="">
+                <h3 class="bright-lights-slider__location">Ibiza, IBZ</h3>
+                <h4 class="bright-lights-slider__name">Swag Ibiza Club</h4>
+                <data>Jul 10 2021</data><a class="bright-lights-slider__tickets">tickets</a>
+              </div>
+  </div>
+ </div>
+ </div>          
+ </div>
+ </div>
+    </div>
+    </div>
+
   <div class="contacts-artist">
     <div class="contacts-artist__wrap">
       <div class="contacts-artist__block"><img class="contacts-artist__img" src="app/img/header/nav-logo.svg"><img class="contacts-artist__text" src="app/img/header/nav-logo-text.png"></div>
