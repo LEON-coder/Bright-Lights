@@ -16,8 +16,18 @@ let track3 = document.querySelector(".track-3");
 let track4 = document.querySelector(".track-4");
 let track5 = document.querySelector(".track-5");
 let track6 = document.querySelector(".track-6");
-let trackNumber = document.querySelector(".last-track__number");
-let trackName = document.querySelector(".last-track__name-track");
+let trackNumber1 = document.querySelector(".last-track__number-1");
+let trackNumber2 = document.querySelector(".last-track__number-2");
+let trackNumber3 = document.querySelector(".last-track__number-3");
+let trackNumber4 = document.querySelector(".last-track__number-4");
+let trackNumber5 = document.querySelector(".last-track__number-5");
+let trackNumber6 = document.querySelector(".last-track__number-6");
+let trackName1 = document.querySelector(".last-track__name-track-1");
+let trackName2 = document.querySelector(".last-track__name-track-2");
+let trackName3 = document.querySelector(".last-track__name-track-3");
+let trackName4 = document.querySelector(".last-track__name-track-4");
+let trackName5= document.querySelector(".last-track__name-track-5");
+let trackName6 = document.querySelector(".last-track__name-track-6");
 
 
 
@@ -84,11 +94,11 @@ function switchTrack(track) {
 			if (track1.paused) {
 				 track1.play();
 				 newTrack1.classList.add("active-button");
-			     trackName.classList.add("active-button");
+			     trackName1.classList.add("active-button");
 			} else {
 				 track1.pause();
 				 newTrack1.classList.remove("active-button");
-			     trackName.classList.remove("active-button");
+			     trackName1.classList.remove("active-button");
 			}	
 			
 			// Запуск интервала
@@ -125,11 +135,13 @@ function switchTrack(track) {
 		    if (track2.paused) {
 				 track2.play();
 				 newTrack2.classList.add("active-button");
-			     trackName.classList.add("active-button");
+			     trackName2.classList.add("active-button");
+			     trackNumber2.classList.add("active-button");
 			} else {
 				 track2.pause();
 				 newTrack2.classList.remove("active-button");
-			     trackName.classList.remove("active-button");
+			     trackName2.classList.remove("active-button");
+			     trackNumber2.classList.remove("active-button");
 			}
 			
 			// Запуск интервала
@@ -166,11 +178,13 @@ function switchTrack(track) {
 		if (track3.paused) {
 				 track3.play();
 				 newTrack3.classList.add("active-button");
-			     trackName.classList.add("active-button");
+			     trackName3.classList.add("active-button");
+				 trackNumber3.classList.add("active-button");
 			} else {
 				 track3.pause();
 				 newTrack3.classList.remove("active-button");
-			     trackName.classList.remove("active-button");
+			     trackName3.classList.remove("active-button");
+			     trackNumber3.classList.remove("active-button");
 			}
 				// Запуск интервала
 			audioPlay = setInterval(function() {
@@ -204,11 +218,13 @@ function switchTrack(track) {
 		 if (track4.paused) {
 				 track4.play();
 				 newTrack4.classList.add("active-button");
-			     trackName.classList.add("active-button");
+			     trackName4.classList.add("active-button");
+			      trackNumber4.classList.add("active-button");
 			} else {
 				 track4.pause();
 				 newTrack4.classList.remove("active-button");
-			     trackName.classList.remove("active-button");
+			     trackName4.classList.remove("active-button");
+			     trackNumber4.classList.remove("active-button");
 			}	
 				// Запуск интервала
 			audioPlay = setInterval(function() {
@@ -242,11 +258,13 @@ function switchTrack(track) {
 		 if (track5.paused) {
 				 track5.play();
 				 newTrack5.classList.add("active-button");
-			     trackName.classList.add("active-button");
+			     trackName5.classList.add("active-button");
+			     trackNumber5.classList.add("active-button");
 			} else {
 				 track5.pause();
 				 newTrack5.classList.remove("active-button");
-			     trackName.classList.remove("active-button");
+			     trackName5.classList.remove("active-button");
+			     trackNumber5.classList.remove("active-button");
 			}
 				// Запуск интервала
 			audioPlay = setInterval(function() {
@@ -280,11 +298,13 @@ function switchTrack(track) {
 		 if (track6.paused) {
 				 track6.play();
 				 newTrack6.classList.add("active-button");
-			     trackName.classList.add("active-button");
+			     trackName6.classList.add("active-button");
+			      trackNumber6.classList.add("active-button");
 			} else {
 				 track6.pause();
 				 newTrack6.classList.remove("active-button");
-			     trackName.classList.remove("active-button");
+			     trackName6.classList.remove("active-button");
+			     trackNumber6.classList.remove("active-button");
 			}
 				// Запуск интервала
 			audioPlay = setInterval(function() {
@@ -299,14 +319,10 @@ function switchTrack(track) {
 
 			// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
             // И проверяем что переменная track меньше шести 
-		    if (audioTime == audioLength && track < 6) {
-			track++; // то увеличиваем переменную
-			switchTrack(track); // Меняем трек
-			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
-		    } else if (audioTime == audioLength && track == 6) {
+		    if (audioTime == audioLength && track > 6) {
 			track = 0; // То присваиваем treck ноль
-			switchTrack(track); // Меняем трек			 
-		   }
+			switchTrack(track); // Меняем трек	 
+		    }
 
 			audio.addEventListener('timeupdate', function() {
 			timePlaying.innerHTML = secondsToTime(audio.currentTime);
