@@ -59,7 +59,7 @@ function switchTrack(track) {
 			} else {
 				audio.pause();
 			}
-		});	
+			
 			// Запуск интервала
 			audioPlay = setInterval(function() {
 		   // Получаем значение на какой секунде песня
@@ -87,6 +87,7 @@ function switchTrack(track) {
 			}, false);
 
 		});
+});
 
       
 		
