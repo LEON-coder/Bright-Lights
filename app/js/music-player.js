@@ -44,9 +44,9 @@ let playlist = [
 
 let track = 0; // Присваиваем переменной ноль
 
-function switchTrack(numtrack) {
+function switchTrack(track) {
 	// Меняем значение атрибута src
-	audio.src = playlist[numtrack];
+	audio.src = playlist[track];
 	// Назначаем время песни ноль
 	audio.currentTime = 0;
 	// Включаем песню
