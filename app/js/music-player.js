@@ -42,7 +42,7 @@ let playlist = [
 
 
 
-let	track = 0; // Присваиваем переменной ноль
+let track; // Присваиваем переменной ноль
 
 function switchTrack(track) {
 	// Меняем значение атрибута src
