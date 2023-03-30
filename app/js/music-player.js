@@ -72,14 +72,10 @@ audioPlay = setInterval(function() {
 		     let audioLength = Math.round(track.duration);          	   
 		     time.style.width = (audioTime * 100) / audioLength + '%';
 			
-		    if (audioTime == audioLength && track < 6) {
+		    if (audioTime == audioLength) {
 			track++; 
 			switchTrack(track); 
-				
-		    } else if (audioTime == audioLength && track >= 6) {
-			track = 0; 
-			switchTrack(track); 		 
-		   }
+		    } 
 });
 
 		
@@ -103,12 +99,8 @@ audioPlay = setInterval(function() {
 			
 		    if (audioTime == audioLength && track < 6) {
 			track++; 
-			switchTrack(track); 
-				
-		    } else if (audioTime == audioLength && track > 6) {
-			track = 0; 
-			switchTrack(track); 		 
-		   }
+			switchTrack(track);	
+	            } 
 
 			newTrack1.addEventListener("click", function() {
             track1.style.color = "#7A66CC";
@@ -179,10 +171,7 @@ audioPlay = setInterval(function() {
 			track++; // то увеличиваем переменную
 			switchTrack(track); // Меняем трек
 			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; // То присваиваем treck ноль
-			switchTrack(track); // Меняем трек			 
-		   }		
+		    } 	
 			
 	     })
 
