@@ -46,27 +46,44 @@ let playlist = [
 ];
 
 
+window.onload = function() {
+    treck = 0; // Присваиваем переменной ноль
+}
 
-let track = 0; // Присваиваем переменной ноль
-
-function switchTrack(track) {
+function switchTrack(numTrack) {
 	// Меняем значение атрибута src
-	audio.src = playlist[track];
+	audio.src = "/music/" + playlist[numTrack];
 	// Назначаем время песни ноль
 	audio.currentTime = 0;
 	// Включаем песню
 	audio.play();
 }
+      
 
-	buttonPlay.addEventListener("click" , function() {
-				if (audio.stop()) {
-					audio.play();
-				} else {
-					audio.stop();
-				}
-			})
 
-    
+
+audioPlay = setInterval(function() {		  
+		     let audioTime = Math.round(track.currentTime);	        
+		     let audioLength = Math.round(track.duration);          	   
+		     time.style.width = (audioTime * 100) / audioLength + '%';
+			
+		    if (audioTime == audioLength && treck < 6) {
+            treck++; // То Увеличиваем переменную 
+            switchTreck(treck); // Меняем трек
+        // Иначе проверяем тоже самое, но переменная treck больше или равна четырём
+        } else if (audioTime == audioLength && treck >= 6) {
+            treck = 0; // То присваиваем treck ноль
+            switchTreck(treck); Меняем трек
+        }
+    }, 10)
+});
+
+if (currentTrack.play()) {
+newTrack.classList.add("active-button");
+trackName.classList.add("active-button");
+trackNumber.classList.add("active-button");
+}
+
 		
 	    newTrack1.addEventListener("click", function(){	
 			if (track1.paused) {
@@ -90,12 +107,8 @@ function switchTrack(track) {
 			
 		    if (audioTime == audioLength && track < 6) {
 			track++; 
-			switchTrack(track); 
-				
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; 
-			switchTrack(track); 		 
-		   }
+			switchTrack(track);	
+	            } 
 
 			newTrack1.addEventListener("click", function() {
             track1.style.color = "#7A66CC";
@@ -172,10 +185,7 @@ function switchTrack(track) {
 			track++; // то увеличиваем переменную
 			switchTrack(track); // Меняем трек
 			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; // То присваиваем treck ноль
-			switchTrack(track); // Меняем трек			 
-		   }		
+		    } 	
 			
 	     })
 
