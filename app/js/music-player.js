@@ -47,7 +47,7 @@ let playlist = [
 
 
 
-let track = 0; // Присваиваем переменной ноль
+let track ; // Присваиваем переменной ноль
 
 function switchTrack(track) {
 	// Меняем значение атрибута src
@@ -101,7 +101,7 @@ buttonPlay.addEventListener("click" , function() {
 			track++; 
 			switchTrack(track); 
 				
-		    } else if (audioTime == audioLength && track == 6) {
+		    } else if (audioTime == audioLength && track > 6) {
 			track = 0; 
 			switchTrack(track); 		 
 		   }
