@@ -67,17 +67,6 @@ buttonPlay.addEventListener("click" , function() {
 	}
 });
 
-buttonPlay.addEventListener("click" , function() {
-	if (audio.ended) {
-		track++; 
-		switchTrack(track);
-	} else {
-		audio.play();
-	}
-});
-
-
-     
 		
 	    newTrack1.addEventListener("click", function(){	
 			if (track1.paused) {
