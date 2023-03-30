@@ -47,7 +47,7 @@ let playlist = [
 
 
 
-let track ; // Присваиваем переменной ноль
+let track = 0; // Присваиваем переменной ноль
 
 function switchTrack(track) {
 	// Меняем значение атрибута src
@@ -63,36 +63,9 @@ function switchTrack(track) {
 				audio.play();
 			} else {
 				audio.pause();
-			}
+			};
 			
-			// Запуск интервала
-			audioPlay = setInterval(function() {
-		   // Получаем значение на какой секунде песня
-		   let audioTime = Math.round(audio.currentTime);
-
-		   // Получаем всё время песни           
-		   let audioLength = Math.round(audio.duration);
-          
-		    // Назначаем ширину элементу time
-			time.style.width = (audioTime * 100) / audioLength + '%';
-
-			// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-            // И проверяем что переменная track меньше шести 
-		    if (audioTime == audioLength && track < 6) {
-			track++; // то увеличиваем переменную
-			switchTrack(track); // Меняем трек
-			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; // То присваиваем treck ноль
-			switchTrack(track); // Меняем трек			 
-		   }
-
-			audio.addEventListener('timeupdate', function() {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
-			}, false);
-
-		});
-});
+			/
 
       
 
@@ -102,7 +75,8 @@ buttonPlay.addEventListener("click" , function() {
 	} else {
 		audio.pause();
 	}
-})
+});
+
 
      
 		
