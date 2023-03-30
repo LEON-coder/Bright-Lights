@@ -57,16 +57,6 @@ function switchTrack(track) {
 	// Включаем песню
 	audio.play();
 }
-
-		buttonPlay.addEventListener("click", function() {
-			if (audio.paused) {
-				audio.play();
-			} else {
-				audio.pause();
-			};
-			
-			/
-
       
 
 buttonPlay.addEventListener("click" , function() {
@@ -74,6 +64,15 @@ buttonPlay.addEventListener("click" , function() {
 		audio.play();
 	} else {
 		audio.pause();
+	}
+});
+
+buttonPlay.addEventListener("click" , function() {
+	if (audio.ended) {
+		track++; 
+		switchTrack(track);
+	} else {
+		audio.play();
 	}
 });
 
