@@ -47,7 +47,7 @@ let playlist = [
 
 
 
-let track ; // Присваиваем переменной ноль
+let track = 0; // Присваиваем переменной ноль
 
 function switchTrack(track) {
 	// Меняем значение атрибута src
@@ -78,7 +78,7 @@ audioPlay = setInterval(function() {
 				
 		    } else if (audioTime == audioLength && track >= 6) {
 			track = 0; 
-			switchTrack(track1); 		 
+			switchTrack(track); 		 
 		   }
 });
 
