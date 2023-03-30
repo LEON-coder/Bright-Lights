@@ -59,13 +59,7 @@ function switchTrack(track) {
 }
       
 
-buttonPlay.addEventListener("click" , function() {
-	if (audio.paused) {
-		audio.play();
-	} else {
-		audio.pause();
-	}
-});
+
 
 audioPlay = setInterval(function() {		  
 		     let audioTime = Math.round(track.currentTime);	        
