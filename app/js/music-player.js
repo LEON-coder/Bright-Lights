@@ -72,6 +72,12 @@ audioPlay = setInterval(function() {
 		    } 
 });
 
+if (currentTrack.play()) {
+newTrack.classList.add("active-button");
+trackName.classList.add("active-button");
+trackNumber.classList.add("active-button");
+}
+
 		
 	    newTrack1.addEventListener("click", function(){	
 			if (track1.paused) {
