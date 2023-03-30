@@ -67,6 +67,21 @@ buttonPlay.addEventListener("click" , function() {
 	}
 });
 
+audioPlay = setInterval(function() {		  
+		     let audioTime = Math.round(track.currentTime);	        
+		     let audioLength = Math.round(track.duration);          	   
+		     time.style.width = (audioTime * 100) / audioLength + '%';
+			
+		    if (audioTime == audioLength && track < 6) {
+			track++; 
+			switchTrack(track); 
+				
+		    } else if (audioTime == audioLength && track >= 6) {
+			track = 0; 
+			switchTrack(track1); 		 
+		   }
+});
+
 		
 	    newTrack1.addEventListener("click", function(){	
 			if (track1.paused) {
