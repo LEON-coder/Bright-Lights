@@ -46,12 +46,13 @@ let playlist = [
 ];
 
 
+window.onload = function() {
+    treck = 0; // Присваиваем переменной ноль
+}
 
-let track = 0; // Присваиваем переменной ноль
-
-function switchTrack(track) {
+function switchTrack(numTrack) {
 	// Меняем значение атрибута src
-	audio.src = playlist[track];
+	audio.src = "/music/" + playlist[numTrack];
 	// Назначаем время песни ноль
 	audio.currentTime = 0;
 	// Включаем песню
@@ -66,10 +67,15 @@ audioPlay = setInterval(function() {
 		     let audioLength = Math.round(track.duration);          	   
 		     time.style.width = (audioTime * 100) / audioLength + '%';
 			
-		    if (audioTime == audioLength) {
-			track++; 
-			switchTrack(track); 
-		    } 
+		    if (audioTime == audioLength && treck < 6) {
+            treck++; // То Увеличиваем переменную 
+            switchTreck(treck); // Меняем трек
+        // Иначе проверяем тоже самое, но переменная treck больше или равна четырём
+        } else if (audioTime == audioLength && treck >= 6) {
+            treck = 0; // То присваиваем treck ноль
+            switchTreck(treck); Меняем трек
+        }
+    }, 10)
 });
 
 if (currentTrack.play()) {
