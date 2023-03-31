@@ -78,23 +78,17 @@ audioPlay = setInterval(function() {
     }, 10)
 });
 
-if (currentTrack.play()) {
-newTrack.classList.add("active-button");
-trackName.classList.add("active-button");
-trackNumber.classList.add("active-button");
-}
-
 		
 	    newTrack1.addEventListener("click", function(){	
 			if (track1.paused) {
 				 track1.play();
 				 newTrack1.classList.add("active-button");
-			     trackName1.classList.add("active-button");
+			         trackName1.classList.add("active-button");
 				 trackNumber1.classList.add("active-button");
 			} else {
 				 track1.pause();
 				 newTrack1.classList.remove("active-button");
-			     trackName1.classList.remove("active-button");
+			         trackName1.classList.remove("active-button");
 				 trackNumber1.classList.remove("active-button");
 			};	
 			
