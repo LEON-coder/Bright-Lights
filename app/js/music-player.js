@@ -67,11 +67,11 @@ audioPlay = setInterval(function() {
 		     let audioLength = Math.round(track.duration);          	   
 		     time.style.width = (audioTime * 100) / audioLength + '%';
 			
-		    if (audioTime == audioLength && treck < 6) {
-            treck++; // То Увеличиваем переменную 
+		    if (audioTime == audioLength && track < 6) {
+            track++; // То Увеличиваем переменную 
             switchTreck(track); // Меняем трек
         // Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-        } else if (audioTime == audioLength && treck >= 6) {
+        } else if (audioTime == audioLength && track >= 6) {
             treck = 0; // То присваиваем treck ноль
             switchTreck(track); Меняем трек
         }
