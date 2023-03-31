@@ -52,9 +52,12 @@ window.onload = function() {
     track = 0; 
 }
 
-function switchTrack(numTrack) {	
-	audio.src = '../music/' + playlist[numTrack];	
-	audio.currentTime = 0;	
+function switchTrack(track) {
+	// Меняем значение атрибута src
+	audio.src = "/music/" + playlist[track];
+	// Назначаем время песни ноль
+	audio.currentTime = 0;
+	// Включаем песню
 	audio.play();
 }
 
@@ -66,12 +69,12 @@ function switchTrack(numTrack) {
 			if (track1.paused) {
 				 track1.play();
 				 newTrack1.classList.add("active-button");
-			     trackName1.classList.add("active-button");
+			         trackName1.classList.add("active-button");
 				 trackNumber1.classList.add("active-button");
 			} else {
 				 track1.pause();
 				 newTrack1.classList.remove("active-button");
-			     trackName1.classList.remove("active-button");
+			         trackName1.classList.remove("active-button");
 				 trackNumber1.classList.remove("active-button");
 			};	
 			
