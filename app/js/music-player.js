@@ -45,46 +45,23 @@ let playlist = [
 	'../../app/music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
 ];
 
+let track;
+
 
 window.onload = function() {
-    treck = 0; // Присваиваем переменной ноль
+    track = 0; 
 }
 
-function switchTrack(numTrack) {
-	// Меняем значение атрибута src
-	audio.src = "/music/" + playlist[numTrack];
-	// Назначаем время песни ноль
-	audio.currentTime = 0;
-	// Включаем песню
+function switchTrack(numTrack) {	
+	audio.src = '../music/' + playlist[numTrack];	
+	audio.currentTime = 0;	
 	audio.play();
 }
-      
 
 
 
-audioPlay = setInterval(function() {		  
-		     let audioTime = Math.round(track.currentTime);	        
-		     let audioLength = Math.round(track.duration);          	   
-		     time.style.width = (audioTime * 100) / audioLength + '%';
-			
-		    if (audioTime == audioLength && treck < 6) {
-            treck++; // То Увеличиваем переменную 
-            switchTreck(treck); // Меняем трек
-        // Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-        } else if (audioTime == audioLength && treck >= 6) {
-            treck = 0; // То присваиваем treck ноль
-            switchTreck(treck); Меняем трек
-        }
-    }, 10)
-});
 
-if (currentTrack.play()) {
-newTrack.classList.add("active-button");
-trackName.classList.add("active-button");
-trackNumber.classList.add("active-button");
-}
-
-		
+ 	
 	    newTrack1.addEventListener("click", function(){	
 			if (track1.paused) {
 				 track1.play();
@@ -100,15 +77,19 @@ trackNumber.classList.add("active-button");
 			
 		
 		
-			audioPlay = setInterval(function() {		  
+			let audioPlay = setInterval(function() {		  
 		     let audioTime = Math.round(track1.currentTime);	        
 		     let audioLength = Math.round(track1.duration);          	   
 			 time.style.width = (audioTime * 100) / audioLength + '%';
 			
 		    if (audioTime == audioLength && track < 6) {
 			track++; 
-			switchTrack(track);	
-	            } 
+			switchTrack(track); 
+			 
+		    } else if (audioTime == audioLength && track == 6) {
+			track = 0; 
+			switchTrack(track); 		 
+		   };
 
 			newTrack1.addEventListener("click", function() {
             track1.style.color = "#7A66CC";
@@ -142,7 +123,7 @@ trackNumber.classList.add("active-button");
                 m = '0' + m;
             }
             if (h === 0) {
-                fulltime = m + ':' + s;
+               fulltime = m + ':' + s;
             } else {
                 fulltime = h + ':' + m + ':' + s;
             }
@@ -173,21 +154,19 @@ trackNumber.classList.add("active-button");
 				}
 			})			
 			
-			audioPlay = setInterval(function() {
-		 
-		   let audioTime = Math.round(track2.currentTime);		         
-		   let audioLength = Math.round(track2.duration);   
-		   time.style.width = (audioTime * 100) / audioLength + '%';
-
-			// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-            // И проверяем что переменная track меньше шести 
-		    if (audioTime == audioLength && track < 6) {
-			track++; // то увеличиваем переменную
-			switchTrack(track); // Меняем трек
-			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
-		    } 	
+	        audioPlay = setInterval(function() {		  
+		     let audioTime = Math.round(track2.currentTime);	        
+		     let audioLength = Math.round(track2.duration);          	   
+			 time.style.width = (audioTime * 100) / audioLength + '%';
 			
-	     })
+		    if (audioTime == audioLength && track < 6) {
+			track++; 
+			switchTrack(track); 
+			  
+		    } else if (audioTime == audioLength && track == 6) {
+			track = 0; 
+			switchTrack(track); 			 
+		   };
 
 		    newTrack2.addEventListener("click", function() {
             track2.style.color = "#7A66CC";
@@ -226,7 +205,8 @@ trackNumber.classList.add("active-button");
             }
             return fulltime;
         }     
-		 	});	
+		 	})
+				});	
 
 
 
@@ -252,20 +232,15 @@ trackNumber.classList.add("active-button");
 					track3.pause();
 				}
 			})	
-				// Запуск интервала
+				
 			audioPlay = setInterval(function() {
-		   // Получаем значение на какой секунде песня
-		   let audioTime = Math.round(track3.currentTime);
-
-		   // Получаем всё время песни           
-		   let audioLength = Math.round(track3.duration);
-          
-		    // Назначаем ширину элементу time
+		  
+		   let audioTime = Math.round(track3.currentTime);		           
+		   let audioLength = Math.round(track3.duration);        
+		   
 			time.style.width = (audioTime * 100) / audioLength + '%';
 
-			// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-            // И проверяем что переменная track меньше шести 
-		    if (audioTime == audioLength && track < 6) {
+			if (audioTime == audioLength && track < 6) {
 			track++; // то увеличиваем переменную
 			switchTrack(track); // Меняем трек
 			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
@@ -338,26 +313,21 @@ trackNumber.classList.add("active-button");
 					track4.pause();
 				}
 			})	
-				// Запуск интервала
+				
 			audioPlay = setInterval(function() {
-		   // Получаем значение на какой секунде песня
-		   let audioTime = Math.round(track4.currentTime);
-
-		   // Получаем всё время песни           
-		   let audioLength = Math.round(track4.duration);
-          
-		    // Назначаем ширину элементу time
+		  
+		   let audioTime = Math.round(track4.currentTime);		          
+		   let audioLength = Math.round(track4.duration);         
+		   
 			time.style.width = (audioTime * 100) / audioLength + '%';
 
-			// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-            // И проверяем что переменная track меньше шести 
-		    if (audioTime == audioLength && track < 6) {
-			track++; // то увеличиваем переменную
-			switchTrack(track); // Меняем трек
-			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
+			if (audioTime == audioLength && track < 6) {
+			track++; 
+			switchTrack(track); 
+			 
 		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; // То присваиваем treck ноль
-			switchTrack(track); // Меняем трек			 
+			track = 0; 
+			switchTrack(track); 			 
 		   };
 
 		    newTrack4.addEventListener("click", function() {
@@ -428,7 +398,7 @@ trackNumber.classList.add("active-button");
 		 
 		   let audioTime = Math.round(track5.currentTime);		         
 		   let audioLength = Math.round(track5.duration);	 
-		    time.style.width = (audioTime * 100) / audioLength + '%';
+		   time.style.width = (audioTime * 100) / audioLength + '%';
 		
 		    if (audioTime == audioLength && track < 6) {
 			track++; 
@@ -507,7 +477,7 @@ trackNumber.classList.add("active-button");
 		   
 		   let audioTime = Math.round(track6.currentTime);		     
 		   let audioLength = Math.round(track6.duration);		   
-			time.style.width = (audioTime * 100) / audioLength + '%';
+		   time.style.width = (audioTime * 100) / audioLength + '%';
 
 		     if (audioTime == audioLength && track < 6) {
 			track++;
@@ -525,7 +495,7 @@ trackNumber.classList.add("active-button");
             newTrack6.addEventListener("click", function() {
             track6.style.color = "#7A66CC";
            }, false)
-	     });
+	     })
 
 		  function secondsToTime(time) {
              

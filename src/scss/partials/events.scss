@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 
@@ -77,11 +78,8 @@
     height: 235px;
 }
 
-.pic-1:hover,
-.pic-2:hover,
-.pic-3:hover,
-.pic-4:hover,
-.pic-5:hover {
+.events__picture:hover,
+.events__picture-right-block:hover {
     transition: 1s;
     opacity: 0.2;
     -webkit-transition: 1s;
