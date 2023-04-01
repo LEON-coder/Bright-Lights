@@ -36,12 +36,12 @@ let trackName6 = document.querySelector(".last-track__name-track-6");
 
 
 let playlist = [
-	'../music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
-	'../music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
-	'../music/Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
-	'../music/Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
-	'../music/Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
-	'../music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
+	'3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
+	'Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
+	'Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
+	'Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
+	'Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
+	'Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
 ];
 
 
