@@ -36,12 +36,12 @@ let trackName6 = document.querySelector(".last-track__name-track-6");
 
 
 let playlist = [
-	'3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
-	'Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
-	'Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
-	'Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
-	'Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
-	'Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
+	'../music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
+	'../music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
+	'../music/Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
+	'../music/Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
+	'../music/Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
+	'../music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
 ];
 
 
@@ -51,9 +51,12 @@ window.onload = function () {
 	track = 0;
 }
 
-function switchTrack(track) {
-	audio.src = '../music/' + playlist[track];
+function switchTrack(numTrack) {
+	// Меняем значение атрибута src
+	audio.src = '/music/' + playlist[numTrack];
+	// Назначаем время песни ноль
 	audio.currentTime = 0;
+	// Включаем песню
 	audio.play();
 };
 
@@ -91,11 +94,11 @@ newTrack1.addEventListener("click", function () {
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
-			switchTrack(track);
+			switchTrack(numTrack);
 
 		} else if (audioTime == audioLength && track >= 6) {
 			track = 0;
-			switchTrack(track);
+			switchTrack(numTrack);
 		};
 
 		newTrack1.addEventListener("click", function () {
@@ -168,11 +171,11 @@ newTrack2.addEventListener("click", function () {
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
-			switchTrack(track);
+			switchTrack(numTrack);
 
 		} else if (audioTime == audioLength && track == 6) {
 			track = 0;
-			switchTrack(track);
+			switchTrack(numTrack);
 		};
 
 		newTrack2.addEventListener("click", function () {
@@ -248,11 +251,11 @@ newTrack3.addEventListener("click", function () {
 
 		if (audioTime == audioLength && track < 6) {
 			track++; // то увеличиваем переменную
-			switchTrack(track); // Меняем трек
+			switchTrack(numTrack); // Меняем трек
 			// Иначе проверяем тоже самое, но переменная track больше или равна 6
 		} else if (audioTime == audioLength && track == 6) {
 			track = 0; // То присваиваем treck ноль
-			switchTrack(track); // Меняем трек			 
+			switchTrack(numTrack); // Меняем трек			 
 		};
 
 		newTrack3.addEventListener("click", function () {
@@ -328,11 +331,11 @@ newTrack4.addEventListener("click", function () {
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
-			switchTrack(track);
+			switchTrack(numTrack);
 
 		} else if (audioTime == audioLength && track == 6) {
 			track = 0;
-			switchTrack(track);
+			switchTrack(numTrack);
 		};
 
 		newTrack4.addEventListener("click", function () {
@@ -407,11 +410,11 @@ newTrack5.addEventListener("click", function () {
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
-			switchTrack(track);
+			switchTrack(numTrack);
 
 		} else if (audioTime == audioLength && track == 6) {
 			track = 0;
-			switchTrack(track);
+			switchTrack(numTrack);
 		};
 
 
@@ -486,11 +489,11 @@ newTrack6.addEventListener("click", function () {
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
-			switchTrack(track);
+			switchTrack(numTrack);
 
 		} else if (audioTime == audioLength && track == 6) {
 			track = 0;
-			switchTrack(track);
+			switchTrack(numTrack);
 		};
 
 		track6.addEventListener('timeupdate', function () {
