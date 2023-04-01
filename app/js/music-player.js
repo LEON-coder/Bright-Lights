@@ -1,20 +1,19 @@
-
-let audio = document.getElementById("audio");    
-let time = document.querySelector(".time");      
-let time2 = document.querySelector(".time-2");      
-let time3 = document.querySelector(".time-3");      
-let time4 = document.querySelector(".time-4");      
-let time5 = document.querySelector(".time-5");      
-let time6 = document.querySelector(".time-6");      
-let buttonPlay = document.querySelector(".button-play");  
-let timePlaying = document.querySelector(".time-playing");
+let audio = document.getElementById("audio");
+let buttonPlay = document.querySelector(".button-play");
+let time = document.querySelector(".time");
+let time2 = document.querySelector(".time-2");
+let time3 = document.querySelector(".time-3");
+let time4 = document.querySelector(".time-4");
+let time5 = document.querySelector(".time-5");
+let time6 = document.querySelector(".time-6");
 let newTrack1 = document.querySelector(".name-track-1");
 let newTrack2 = document.querySelector(".name-track-2");
 let newTrack3 = document.querySelector(".name-track-3");
 let newTrack4 = document.querySelector(".name-track-4");
 let newTrack5 = document.querySelector(".name-track-5");
 let newTrack6 = document.querySelector(".name-track-6");
-let fullTime = document.querySelector(".full-time-playing");
+let timePlaying = document.querySelector(".time-playing");
+let fullTimePlaying = document.querySelector(".full-time-playing");
 let track1 = document.querySelector(".track-1");
 let track2 = document.querySelector(".track-2");
 let track3 = document.querySelector(".track-3");
@@ -31,523 +30,504 @@ let trackName1 = document.querySelector(".last-track__name-track-1");
 let trackName2 = document.querySelector(".last-track__name-track-2");
 let trackName3 = document.querySelector(".last-track__name-track-3");
 let trackName4 = document.querySelector(".last-track__name-track-4");
-let trackName5= document.querySelector(".last-track__name-track-5");
+let trackName5 = document.querySelector(".last-track__name-track-5");
 let trackName6 = document.querySelector(".last-track__name-track-6");
 
 
 
-let playlist = [	
-	'../../app/music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
-	'../../app/music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
-	'../../app/music/Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
-	'../../app/music/Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',	
-	'../../app/music/Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
-	'../../app/music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
+let playlist = [
+	'../music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
+	'../music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
+	'../music/Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
+	'../music/Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
+	'../music/Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
+	'../music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
 ];
+
 
 let track;
 
-
-window.onload = function() {
-    track = 0; 
+window.onload = function () {
+	track = 0;
 }
 
 function switchTrack(track) {
-	// Меняем значение атрибута src
-	audio.src = "/music/" + playlist[track];
-	// Назначаем время песни ноль
+	audio.src = '../music/' + playlist[track];
 	audio.currentTime = 0;
-	// Включаем песню
 	audio.play();
-}
+};
 
 
 
+newTrack1.addEventListener("click", function () {
+	if (track1.paused) {
+		track1.play();
+		newTrack1.classList.add("active-button");
+		trackName1.classList.add("active-button");
+		trackNumber1.classList.add("active-button");
+	} else {
+		track1.pause();
+		newTrack1.classList.remove("active-button");
+		trackName1.classList.remove("active-button");
+		trackNumber1.classList.remove("active-button");
+	};
 
- 	
-	    newTrack1.addEventListener("click", function(){	
-			if (track1.paused) {
-				 track1.play();
-				 newTrack1.classList.add("active-button");
-			         trackName1.classList.add("active-button");
-				 trackNumber1.classList.add("active-button");
-			} else {
-				 track1.pause();
-				 newTrack1.classList.remove("active-button");
-			         trackName1.classList.remove("active-button");
-				 trackNumber1.classList.remove("active-button");
-			};	
-			
-		
-		
-			let audioPlay = setInterval(function() {		  
-		     let audioTime = Math.round(track1.currentTime);	        
-		     let audioLength = Math.round(track1.duration);          	   
-			 time.style.width = (audioTime * 100) / audioLength + '%';
-			
-		    if (audioTime == audioLength && track < 6) {
-			track++; 
-			switchTrack(track); 
-			 
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; 
-			switchTrack(track); 		 
-		   };
+	buttonPlay.addEventListener("click", function () {
+		if (track1.paused) {
+			track1.play();
+		} else {
+			track1.pause();
+		}
+	})
 
-			newTrack1.addEventListener("click", function() {
-            track1.style.color = "#7A66CC";
-           }, false);
 
-			track1.addEventListener('timeupdate', function() {
+
+	audioPlay = setInterval(function () {
+		let audioTime = Math.round(track1.currentTime);
+		let audioLength = Math.round(track1.duration);
+		time.style.width = (audioTime * 100) / audioLength + '%';
+		fullTimePlaying = (track1.duration);
+
+
+		if (audioTime == audioLength && track < 6) {
+			track++;
+			switchTrack(track);
+
+		} else if (audioTime == audioLength && track >= 6) {
+			track = 0;
+			switchTrack(track);
+		};
+
+		newTrack1.addEventListener("click", function () {
+			track1.style.color = "#7A66CC";
+		}, false);
+
+		track1.addEventListener('timeupdate', function () {
 			timePlaying.innerHTML = secondsToTime(track1.currentTime);
-			}, false);	  
-			
-	     })
+		}, false);
 
-		  function secondsToTime(time) {
-             
-            var h = Math.floor(time / (60 * 60)),
-                dm = time % (60 * 60),
-                m = Math.floor(dm / 60),
-                ds = dm % 60,
-                s = Math.ceil(ds);
-            if (s === 60) {
-                s = 0;
-                m = m + 1;
-            }
-            if (s < 10) {
-                s = '0' + s;
-            }
-            if (m === 60) {
-                m = 0;
-                h = h + 1;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            if (h === 0) {
-               fulltime = m + ':' + s;
-            } else {
-                fulltime = h + ':' + m + ':' + s;
-            }
-            return fulltime;
-        };		 	 
-		 	});	
+	})
+
+	function secondsToTime(time) {
+
+		var h = Math.floor(time / (60 * 60)),
+			dm = time % (60 * 60),
+			m = Math.floor(dm / 60),
+			ds = dm % 60,
+			s = Math.ceil(ds);
+		if (s === 60) {
+			s = 0;
+			m = m + 1;
+		}
+		if (s < 10) {
+			s = '0' + s;
+		}
+		if (m === 60) {
+			m = 0;
+			h = h + 1;
+		}
+		if (m < 10) {
+			m = '0' + m;
+		}
+		if (h === 0) {
+			fulltime = m + ':' + s;
+		} else {
+			fulltime = h + ':' + m + ':' + s;
+		}
+		return fulltime;
+	};
+});
 
 
-	    newTrack2.addEventListener("click", function(){	
-		    if (track2.paused) {
-				 track2.play();
-				 newTrack2.classList.add("active-button");
-			     trackName2.classList.add("active-button");
-			     trackNumber2.classList.add("active-button");
-			} else {
-				 track2.pause();
-				 newTrack2.classList.remove("active-button");
-			     trackName2.classList.remove("active-button");
-			     trackNumber2.classList.remove("active-button");
-			};
-			
+newTrack2.addEventListener("click", function () {
+	if (track2.paused) {
+		track2.play();
+		newTrack2.classList.add("active-button");
+		trackName2.classList.add("active-button");
+		trackNumber2.classList.add("active-button");
+	} else {
+		track2.pause();
+		newTrack2.classList.remove("active-button");
+		trackName2.classList.remove("active-button");
+		trackNumber2.classList.remove("active-button");
+	};
 
-			buttonPlay.addEventListener("click" , function() {
-				if (track2.paused) {
-					track2.play();
-				} else {
-					track2.pause();
-				}
-			})			
-			
-	        audioPlay = setInterval(function() {		  
-		     let audioTime = Math.round(track2.currentTime);	        
-		     let audioLength = Math.round(track2.duration);          	   
-			 time.style.width = (audioTime * 100) / audioLength + '%';
-			
-		    if (audioTime == audioLength && track < 6) {
-			track++; 
-			switchTrack(track); 
-			  
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; 
-			switchTrack(track); 			 
-		   };
 
-		    newTrack2.addEventListener("click", function() {
-            track2.style.color = "#7A66CC";
-           }, false)
+	buttonPlay.addEventListener("click", function () {
+		if (track2.paused) {
+			track2.play();
+		} else {
+			track2.pause();
+		}
+	})
 
-			track2.addEventListener('timeupdate', function() {
+	audioPlay = setInterval(function () {
+		let audioTime = Math.round(track2.currentTime);
+		let audioLength = Math.round(track2.duration);
+		time2.style.width = (audioTime * 100) / audioLength + '%';
+
+		if (audioTime == audioLength && track < 6) {
+			track++;
+			switchTrack(track);
+
+		} else if (audioTime == audioLength && track == 6) {
+			track = 0;
+			switchTrack(track);
+		};
+
+		newTrack2.addEventListener("click", function () {
+			track2.style.color = "#7A66CC";
+		}, false)
+
+		track2.addEventListener('timeupdate', function () {
 			timePlaying.innerHTML = secondsToTime(track2.currentTime);
-			}, false);	
+		}, false);
 
-		 // рассчет отображаемого времени
-        function secondsToTime(time){
-             
-            var h = Math.floor(time / (60 * 60)),
-                dm = time % (60 * 60),
-                m = Math.floor(dm / 60),
-                ds = dm % 60,
-                s = Math.ceil(ds);
-            if (s === 60) {
-                s = 0;
-                m = m + 1;
-            }
-            if (s < 10) {
-                s = '0' + s;
-            }
-            if (m === 60) {
-                m = 0;
-                h = h + 1;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            if (h === 0) {
-                fulltime = m + ':' + s;
-            } else {
-                fulltime = h + ':' + m + ':' + s;
-            }
-            return fulltime;
-        }     
-		 	})
-				});	
+		// рассчет отображаемого времени
+		function secondsToTime(time) {
 
-
-
-		 
-		
-	    newTrack3.addEventListener("click", function(){	
-		if (track3.paused) {
-				 track3.play();
-				 newTrack3.classList.add("active-button");
-			     trackName3.classList.add("active-button");
-				 trackNumber3.classList.add("active-button");
+			var h = Math.floor(time / (60 * 60)),
+				dm = time % (60 * 60),
+				m = Math.floor(dm / 60),
+				ds = dm % 60,
+				s = Math.ceil(ds);
+			if (s === 60) {
+				s = 0;
+				m = m + 1;
+			}
+			if (s < 10) {
+				s = '0' + s;
+			}
+			if (m === 60) {
+				m = 0;
+				h = h + 1;
+			}
+			if (m < 10) {
+				m = '0' + m;
+			}
+			if (h === 0) {
+				fulltime = m + ':' + s;
 			} else {
-				 track3.pause();
-				 newTrack3.classList.remove("active-button");
-			     trackName3.classList.remove("active-button");
-			     trackNumber3.classList.remove("active-button");
-			};
+				fulltime = h + ':' + m + ':' + s;
+			}
+			return fulltime;
+		}
+	})
+});
 
-			buttonPlay.addEventListener("click" , function() {
-				if (track3.paused) {
-					track3.play();
-				} else {
-					track3.pause();
-				}
-			})	
-				
-			audioPlay = setInterval(function() {
-		  
-		   let audioTime = Math.round(track3.currentTime);		           
-		   let audioLength = Math.round(track3.duration);        
-		   
-			time.style.width = (audioTime * 100) / audioLength + '%';
 
-			if (audioTime == audioLength && track < 6) {
+
+
+
+newTrack3.addEventListener("click", function () {
+	if (track3.paused) {
+		track3.play();
+		newTrack3.classList.add("active-button");
+		trackName3.classList.add("active-button");
+		trackNumber3.classList.add("active-button");
+	} else {
+		track3.pause();
+		newTrack3.classList.remove("active-button");
+		trackName3.classList.remove("active-button");
+		trackNumber3.classList.remove("active-button");
+	};
+
+	buttonPlay.addEventListener("click", function () {
+		if (track3.paused) {
+			track3.play();
+		} else {
+			track3.pause();
+		}
+	})
+
+	audioPlay = setInterval(function () {
+
+		let audioTime = Math.round(track3.currentTime);
+		let audioLength = Math.round(track3.duration);
+		time3.style.width = (audioTime * 100) / audioLength + '%';
+
+		if (audioTime == audioLength && track < 6) {
 			track++; // то увеличиваем переменную
 			switchTrack(track); // Меняем трек
-			  // Иначе проверяем тоже самое, но переменная track больше или равна 6
-		    } else if (audioTime == audioLength && track == 6) {
+			// Иначе проверяем тоже самое, но переменная track больше или равна 6
+		} else if (audioTime == audioLength && track == 6) {
 			track = 0; // То присваиваем treck ноль
 			switchTrack(track); // Меняем трек			 
-		   };
+		};
 
-		    newTrack3.addEventListener("click", function() {
-            track3.style.color = "#7A66CC";
-           }, false);
+		newTrack3.addEventListener("click", function () {
+			track3.style.color = "#7A66CC";
+		}, false);
 
-			track3.addEventListener('timeupdate', function() {
+		track3.addEventListener('timeupdate', function () {
 			timePlaying.innerHTML = secondsToTime(track3.currentTime);
-			}, false);			
-	     })
+		}, false);
+	})
 
 
-		  function secondsToTime(time) {
-             
-            var h = Math.floor(time / (60 * 60)),
-                dm = time % (60 * 60),
-                m = Math.floor(dm / 60),
-                ds = dm % 60,
-                s = Math.ceil(ds);
-            if (s === 60) {
-                s = 0;
-                m = m + 1;
-            }
-            if (s < 10) {
-                s = '0' + s;
-            }
-            if (m === 60) {
-                m = 0;
-                h = h + 1;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            if (h === 0) {
-                fulltime = m + ':' + s;
-            } else {
-                fulltime = h + ':' + m + ':' + s;
-            }
-            return fulltime;
-        }		 	 
-		});
+	function secondsToTime(time) {
 
-
-
-
-		
-	        newTrack4.addEventListener("click", function(){	
-		 if (track4.paused) {
-				 track4.play();
-				 newTrack4.classList.add("active-button");
-			     trackName4.classList.add("active-button");
-			      trackNumber4.classList.add("active-button");
-			} else {
-				 track4.pause();
-				 newTrack4.classList.remove("active-button");
-			     trackName4.classList.remove("active-button");
-			     trackNumber4.classList.remove("active-button");
-			};
-			
-			buttonPlay.addEventListener("click" , function() {
-				if (track4.paused) {
-					track4.play();
-				} else {
-					track4.pause();
-				}
-			})	
-				
-			audioPlay = setInterval(function() {
-		  
-		   let audioTime = Math.round(track4.currentTime);		          
-		   let audioLength = Math.round(track4.duration);         
-		   
-			time.style.width = (audioTime * 100) / audioLength + '%';
-
-			if (audioTime == audioLength && track < 6) {
-			track++; 
-			switchTrack(track); 
-			 
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; 
-			switchTrack(track); 			 
-		   };
-
-		    newTrack4.addEventListener("click", function() {
-            track4.style.color = "#7A66CC";
-           }, false);
-
-			track4.addEventListener('timeupdate', function() {
-			timePlaying.innerHTML = secondsToTime(track4.currentTime);
-			}, false);		
-	     })	
-
-		  function secondsToTime(time) {
-             
-            var h = Math.floor(time / (60 * 60)),
-                dm = time % (60 * 60),
-                m = Math.floor(dm / 60),
-                ds = dm % 60,
-                s = Math.ceil(ds);
-            if (s === 60) {
-                s = 0;
-                m = m + 1;
-            }
-            if (s < 10) {
-                s = '0' + s;
-            }
-            if (m === 60) {
-                m = 0;
-                h = h + 1;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            if (h === 0) {
-                fulltime = m + ':' + s;
-            } else {
-                fulltime = h + ':' + m + ':' + s;
-            }
-            return fulltime;
-        }		 	 
-	     })
+		var h = Math.floor(time / (60 * 60)),
+			dm = time % (60 * 60),
+			m = Math.floor(dm / 60),
+			ds = dm % 60,
+			s = Math.ceil(ds);
+		if (s === 60) {
+			s = 0;
+			m = m + 1;
+		}
+		if (s < 10) {
+			s = '0' + s;
+		}
+		if (m === 60) {
+			m = 0;
+			h = h + 1;
+		}
+		if (m < 10) {
+			m = '0' + m;
+		}
+		if (h === 0) {
+			fulltime = m + ':' + s;
+		} else {
+			fulltime = h + ':' + m + ':' + s;
+		}
+		return fulltime;
+	}
+});
 
 
 
 
 
-	    newTrack5.addEventListener("click", function(){	
-		 if (track5.paused) {
-				 track5.play();
-				 newTrack5.classList.add("active-button");
-			     trackName5.classList.add("active-button");
-			     trackNumber5.classList.add("active-button");
-			} else {
-				 track5.pause();
-				 newTrack5.classList.remove("active-button");
-			     trackName5.classList.remove("active-button");
-			     trackNumber5.classList.remove("active-button");
-			};
+newTrack4.addEventListener("click", function () {
+	if (track4.paused) {
+		track4.play();
+		newTrack4.classList.add("active-button");
+		trackName4.classList.add("active-button");
+		trackNumber4.classList.add("active-button");
+	} else {
+		track4.pause();
+		newTrack4.classList.remove("active-button");
+		trackName4.classList.remove("active-button");
+		trackNumber4.classList.remove("active-button");
+	};
 
-			buttonPlay.addEventListener("click" , function() {
-				if (track5.paused) {
-					track5.play();
-				} else {
-					track5.pause();
-				}
-			})	
-			
-			audioPlay = setInterval(function() {
-		 
-		   let audioTime = Math.round(track5.currentTime);		         
-		   let audioLength = Math.round(track5.duration);	 
-		   time.style.width = (audioTime * 100) / audioLength + '%';
-		
-		    if (audioTime == audioLength && track < 6) {
-			track++; 
-			switchTrack(track); 
-			
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; 
-			switchTrack(track); 		 
-		   };
+	buttonPlay.addEventListener("click", function () {
+		if (track4.paused) {
+			track4.play();
+		} else {
+			track4.pause();
+		}
+	})
 
+	audioPlay = setInterval(function () {
 
-            track5.addEventListener('timeupdate', function() {
-			timePlaying.innerHTML = secondsToTime(track5.currentTime);
-			}, false);	
+		let audioTime = Math.round(track4.currentTime);
+		let audioLength = Math.round(track4.duration);
+		time4.style.width = (audioTime * 100) / audioLength + '%';
 
-
-		    newTrack5.addEventListener("click", function() {
-            track5.style.color = "#7A66CC";
-           }, false);			
-	     })	
-
-		  function secondsToTime(time) {
-             
-            var h = Math.floor(time / (60 * 60)),
-                dm = time % (60 * 60),
-                m = Math.floor(dm / 60),
-                ds = dm % 60,
-                s = Math.ceil(ds);
-            if (s === 60) {
-                s = 0;
-                m = m + 1;
-            }
-            if (s < 10) {
-                s = '0' + s;
-            }
-            if (m === 60) {
-                m = 0;
-                h = h + 1;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            if (h === 0) {
-                fulltime = m + ':' + s;
-            } else {
-                fulltime = h + ':' + m + ':' + s;
-            }
-            return fulltime;
-        }		 	 
-	     });
-
-
-
-	    newTrack6.addEventListener("click", function(){	
-		 if (track6.paused) {
-				 track6.play();
-				 newTrack6.classList.add("active-button");
-			     trackName6.classList.add("active-button");
-			      trackNumber6.classList.add("active-button");
-			} else {
-				 track6.pause();
-				 newTrack6.classList.remove("active-button");
-			     trackName6.classList.remove("active-button");
-			     trackNumber6.classList.remove("active-button");
-			};
-
-			buttonPlay.addEventListener("click" , function() {
-				if (track6.paused) {
-					track6.play();
-				} else {
-					track6.pause();
-				}
-			})	
-			
-			audioPlay = setInterval(function() {
-		   
-		   let audioTime = Math.round(track6.currentTime);		     
-		   let audioLength = Math.round(track6.duration);		   
-		   time.style.width = (audioTime * 100) / audioLength + '%';
-
-		     if (audioTime == audioLength && track < 6) {
+		if (audioTime == audioLength && track < 6) {
 			track++;
-			switchTrack(track); 
-			
-		    } else if (audioTime == audioLength && track == 6) {
-			track = 0; 
-			switchTrack(track); 		 
-		   };
+			switchTrack(track);
 
-			track6.addEventListener('timeupdate', function() {
+		} else if (audioTime == audioLength && track == 6) {
+			track = 0;
+			switchTrack(track);
+		};
+
+		newTrack4.addEventListener("click", function () {
+			track4.style.color = "#7A66CC";
+		}, false);
+
+		track4.addEventListener('timeupdate', function () {
+			timePlaying.innerHTML = secondsToTime(track4.currentTime);
+		}, false);
+	})
+
+	function secondsToTime(time) {
+
+		var h = Math.floor(time / (60 * 60)),
+			dm = time % (60 * 60),
+			m = Math.floor(dm / 60),
+			ds = dm % 60,
+			s = Math.ceil(ds);
+		if (s === 60) {
+			s = 0;
+			m = m + 1;
+		}
+		if (s < 10) {
+			s = '0' + s;
+		}
+		if (m === 60) {
+			m = 0;
+			h = h + 1;
+		}
+		if (m < 10) {
+			m = '0' + m;
+		}
+		if (h === 0) {
+			fulltime = m + ':' + s;
+		} else {
+			fulltime = h + ':' + m + ':' + s;
+		}
+		return fulltime;
+	}
+})
+
+
+
+
+
+newTrack5.addEventListener("click", function () {
+	if (track5.paused) {
+		track5.play();
+		newTrack5.classList.add("active-button");
+		trackName5.classList.add("active-button");
+		trackNumber5.classList.add("active-button");
+	} else {
+		track5.pause();
+		newTrack5.classList.remove("active-button");
+		trackName5.classList.remove("active-button");
+		trackNumber5.classList.remove("active-button");
+	};
+
+	buttonPlay.addEventListener("click", function () {
+		if (track5.paused) {
+			track5.play();
+		} else {
+			track5.pause();
+		}
+	})
+
+	audioPlay = setInterval(function () {
+
+		let audioTime = Math.round(track5.currentTime);
+		let audioLength = Math.round(track5.duration);
+		time5.style.width = (audioTime * 100) / audioLength + '%';
+
+		if (audioTime == audioLength && track < 6) {
+			track++;
+			switchTrack(track);
+
+		} else if (audioTime == audioLength && track == 6) {
+			track = 0;
+			switchTrack(track);
+		};
+
+
+		track5.addEventListener('timeupdate', function () {
+			timePlaying.innerHTML = secondsToTime(track5.currentTime);
+		}, false);
+
+
+		newTrack5.addEventListener("click", function () {
+			track5.style.color = "#7A66CC";
+		}, false);
+	})
+
+	function secondsToTime(time) {
+
+		var h = Math.floor(time / (60 * 60)),
+			dm = time % (60 * 60),
+			m = Math.floor(dm / 60),
+			ds = dm % 60,
+			s = Math.ceil(ds);
+		if (s === 60) {
+			s = 0;
+			m = m + 1;
+		}
+		if (s < 10) {
+			s = '0' + s;
+		}
+		if (m === 60) {
+			m = 0;
+			h = h + 1;
+		}
+		if (m < 10) {
+			m = '0' + m;
+		}
+		if (h === 0) {
+			fulltime = m + ':' + s;
+		} else {
+			fulltime = h + ':' + m + ':' + s;
+		}
+		return fulltime;
+	}
+});
+
+
+
+newTrack6.addEventListener("click", function () {
+	if (track6.paused) {
+		track6.play();
+		newTrack6.classList.add("active-button");
+		trackName6.classList.add("active-button");
+		trackNumber6.classList.add("active-button");
+	} else {
+		track6.pause();
+		newTrack6.classList.remove("active-button");
+		trackName6.classList.remove("active-button");
+		trackNumber6.classList.remove("active-button");
+	};
+
+	buttonPlay.addEventListener("click", function () {
+		if (track6.paused) {
+			track6.play();
+		} else {
+			track6.pause();
+		}
+	})
+
+	audioPlay = setInterval(function () {
+
+		let audioTime = Math.round(track6.currentTime);
+		let audioLength = Math.round(track6.duration);
+		time6.style.width = (audioTime * 100) / audioLength + '%';
+
+		if (audioTime == audioLength && track < 6) {
+			track++;
+			switchTrack(track);
+
+		} else if (audioTime == audioLength && track == 6) {
+			track = 0;
+			switchTrack(track);
+		};
+
+		track6.addEventListener('timeupdate', function () {
 			timePlaying.innerHTML = secondsToTime(track6.currentTime);
-			}, false)
+		}, false)
 
-            newTrack6.addEventListener("click", function() {
-            track6.style.color = "#7A66CC";
-           }, false)
-	     })
+		newTrack6.addEventListener("click", function () {
+			track6.style.color = "#7A66CC";
+		}, false)
+	})
 
-		  function secondsToTime(time) {
-             
-            var h = Math.floor(time / (60 * 60)),
-                dm = time % (60 * 60),
-                m = Math.floor(dm / 60),
-                ds = dm % 60,
-                s = Math.ceil(ds);
-            if (s === 60) {
-                s = 0;
-                m = m + 1;
-            }
-            if (s < 10) {
-                s = '0' + s;
-            }
-            if (m === 60) {
-                m = 0;
-                h = h + 1;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            if (h === 0) {
-                fulltime = m + ':' + s;
-            } else {
-                fulltime = h + ':' + m + ':' + s;
-            }
-            return fulltime;
-        }		 	 
-	     });
+	function secondsToTime(time) {
 
-
-
-		 		
-
-
-
-
-		 
-	
-       
-
-  
-	
-
-
-
-
-
-
-  
-	
+		var h = Math.floor(time / (60 * 60)),
+			dm = time % (60 * 60),
+			m = Math.floor(dm / 60),
+			ds = dm % 60,
+			s = Math.ceil(ds);
+		if (s === 60) {
+			s = 0;
+			m = m + 1;
+		}
+		if (s < 10) {
+			s = '0' + s;
+		}
+		if (m === 60) {
+			m = 0;
+			h = h + 1;
+		}
+		if (m < 10) {
+			m = '0' + m;
+		}
+		if (h === 0) {
+			fulltime = m + ':' + s;
+		} else {
+			fulltime = h + ':' + m + ':' + s;
+		}
+		return fulltime;
+	}
+});
