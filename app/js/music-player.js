@@ -36,12 +36,12 @@ let trackName6 = document.querySelector(".last-track__name-track-6");
 
 
 let playlist = [
-	'../../3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
-	'../../Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
-	'../../Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
-	'../../Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
-	'../../Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
-	'../../music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
+	'3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
+	'Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
+	'Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
+	'Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
+	'Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
+	'Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
 ];
 
 
@@ -51,9 +51,8 @@ window.onload = function () {
 	track = 0;
 }
 
-function switchTrack(numtrack) {
-	// Меняем значение атрибута src
-	audio.src = './music/' + playlist[numtrack];
+function switchTrack(track) {
+	audio.src = 'app/music/' + playlist[track];
 	// Назначаем время песни ноль
 	audio.currentTime = 0;
 	// Включаем песню
@@ -81,22 +80,19 @@ newTrack1.addEventListener("click", function () {
 		} else {
 			track1.pause();
 		}
-	})
-
-
+	});
 
 	audioPlay = setInterval(function () {
-		let audioTime = Math.round(track1.currentTime);
-		let audioLength = Math.round(track1.duration);
+		audioTime = Math.round(track1.currentTime);
+		audioLength = Math.round(track1.duration);
 		time.style.width = (audioTime * 100) / audioLength + '%';
-		fullTimePlaying = (track1.duration);
 
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
 			switchTrack(track);
 
-		} else if (audioTime == audioLength && track >= 6) {
+		} else if (audioTime == audioLength && track == 6) {
 			track = 0;
 			switchTrack(track);
 		};
@@ -105,10 +101,13 @@ newTrack1.addEventListener("click", function () {
 			track1.style.color = "#7A66CC";
 		}, false);
 
-		track1.addEventListener('timeupdate', function () {
-			timePlaying.innerHTML = secondsToTime(track1.currentTime);
+		audio.addEventListener('timeupdate', function () {
+			timePlaying.innerHTML = secondsToTime(audio.currentTime);
 		}, false);
 
+		audio.addEventListener('durationchange', function () {
+			fullTimePlaying.innerHTML = (audio.audioLength);
+		}, false);
 	})
 
 	function secondsToTime(time) {
@@ -487,7 +486,7 @@ newTrack6.addEventListener("click", function () {
 		let audioLength = Math.round(track6.duration);
 		time6.style.width = (audioTime * 100) / audioLength + '%';
 
-		if (audioTime == audioLength && track < 6) {
+		if (audioTime == audioLength) {
 			track++;
 			switchTrack(track);
 
