@@ -233,9 +233,58 @@
   }
 
   #slider_bl article {
-    width: 350px;
+    width: 1050px;
     float: left;
     position: relative;
     height: auto;
+  }
+  .bright-lights-slider__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 473px;
+    overflow: hidden;
+    width: 90%;
+    border-radius: 20px;
+    margin-top: 0;
+  }
+
+  .slider_bl {
+    display: flex;
+  }
+
+  .bright-lights-slider__slider {
+    display: flex;
+    width: 300px;
+    height: 473px;
+    background: #2f2b2b;
+    border-radius: 30px 0;
+    margin-right: 50px;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .bright-lights-slider__tickets {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #7a66cc;
+    border-radius: 30px 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
