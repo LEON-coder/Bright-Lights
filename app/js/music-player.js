@@ -13,7 +13,7 @@ let newTrack4 = document.querySelector(".name-track-4");
 let newTrack5 = document.querySelector(".name-track-5");
 let newTrack6 = document.querySelector(".name-track-6");
 let timePlaying = document.querySelector(".time-playing");
-let fullTimePlaying = document.querySelector(".full-time-playing");
+let fulltime = document.querySelector(".full-time-playing");
 let track1 = document.querySelector(".track-1");
 let track2 = document.querySelector(".track-2");
 let track3 = document.querySelector(".track-3");
@@ -36,12 +36,12 @@ let trackName6 = document.querySelector(".last-track__name-track-6");
 
 
 let playlist = [
-	'3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
-	'Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
-	'Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
-	'Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
-	'Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
-	'Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
+	'../music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
+	'../music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
+	'../music/Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
+	'../music/Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
+	'../music/Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
+	'../music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
 ];
 
 
@@ -51,13 +51,74 @@ window.onload = function () {
 	track = 0;
 }
 
-function switchTrack(track) {
-	audio.src = 'app/music/' + playlist[track];
-	// Назначаем время песни ноль
+function switchTrack(numTrack) {
+	audio.src = './music/' + playlist[track];
 	audio.currentTime = 0;
-	// Включаем песню
 	audio.play();
 };
+
+buttonPlay.addEventListener("click", function () {
+	if (audio.paused) {
+		audio.play();
+	} else {
+		audio.pause();
+	}
+});
+
+let audioPlay = setInterval(function () {
+	let audioTime = Math.round(audio.currentTime);
+	let fulltime = Math.round(audio.duration);
+	time.style.width = (audioTime * 100) / fulltime + '%';
+
+
+	if (audioTime == fulltime && track < 6) {
+		track++;
+		switchTrack(track);
+
+	} else if (audioTime == fulltime && track >= 6) {
+		track = 0;
+		switchTrack(track);
+	};
+
+	audio.addEventListener("click", function () {
+		audio.style.color = "#7A66CC";
+	}, false);
+
+	audio.addEventListener('timeupdate', function () {
+		timePlaying.innerHTML = secondsToTime(audio.currentTime);
+	}, false);
+
+	function secondsToTime(time) {
+
+		var h = Math.floor(time / (60 * 60)),
+			dm = time % (60 * 60),
+			m = Math.floor(dm / 60),
+			ds = dm % 60,
+			s = Math.ceil(ds);
+		if (s === 60) {
+			s = 0;
+			m = m + 1;
+		}
+		if (s < 10) {
+			s = '0' + s;
+		}
+		if (m === 60) {
+			m = 0;
+			h = h + 1;
+		}
+		if (m < 10) {
+			m = '0' + m;
+		}
+		if (h === 0) {
+			fulltime = m + ':' + s;
+		} else {
+			fulltime = h + ':' + m + ':' + s;
+		}
+		return fulltime;
+	};
+
+
+})
 
 
 
@@ -83,8 +144,8 @@ newTrack1.addEventListener("click", function () {
 	});
 
 	audioPlay = setInterval(function () {
-		audioTime = Math.round(track1.currentTime);
-		audioLength = Math.round(track1.duration);
+		let audioTime = Math.round(track1.currentTime);
+		let audioLength = Math.round(track1.duration);
 		time.style.width = (audioTime * 100) / audioLength + '%';
 
 
@@ -92,7 +153,7 @@ newTrack1.addEventListener("click", function () {
 			track++;
 			switchTrack(track);
 
-		} else if (audioTime == audioLength && track == 6) {
+		} else if (audioTime == audioLength && track >= 6) {
 			track = 0;
 			switchTrack(track);
 		};
@@ -101,13 +162,17 @@ newTrack1.addEventListener("click", function () {
 			track1.style.color = "#7A66CC";
 		}, false);
 
-		audio.addEventListener('timeupdate', function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
+		newTrack1.addEventListener('timeupdate', function () {
+			timePlaying.innerHTML = secondsToTime(newTrack1.currentTime);
 		}, false);
 
-		audio.addEventListener('durationchange', function () {
-			fullTimePlaying.innerHTML = (audio.audioLength);
+		newTrack1.addEventListener('duration', function () {
+			fulltime.innerHTML = (newTrack1.audioLength);
 		}, false);
+
+		newTrack1.onloadeddata = () => {
+			fulltime.innerHTML = (newTrack1.audioLength);
+		}
 	})
 
 	function secondsToTime(time) {
@@ -177,6 +242,8 @@ newTrack2.addEventListener("click", function () {
 			switchTrack(track);
 		};
 
+
+
 		newTrack2.addEventListener("click", function () {
 			track2.style.color = "#7A66CC";
 		}, false)
@@ -185,6 +252,9 @@ newTrack2.addEventListener("click", function () {
 			timePlaying.innerHTML = secondsToTime(track2.currentTime);
 		}, false);
 
+		newTrack2.addEventListener('duration', function () {
+			fulltime.innerHTML = (newTrack2.audioLength);
+		}, false);
 		// рассчет отображаемого времени
 		function secondsToTime(time) {
 
@@ -249,10 +319,10 @@ newTrack3.addEventListener("click", function () {
 		time3.style.width = (audioTime * 100) / audioLength + '%';
 
 		if (audioTime == audioLength && track < 6) {
-			track++; // то увеличиваем переменную
-			switchTrack(track); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная track больше или равна 6
-		} else if (audioTime == audioLength && track == 6) {
+			track++;
+			switchTrack(track);
+
+		} else if (audioTime == audioLength && track >= 6) {
 			track = 0; // То присваиваем treck ноль
 			switchTrack(track); // Меняем трек			 
 		};

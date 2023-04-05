@@ -5,7 +5,6 @@ let closeMenu = document.querySelector(".menu-stripe::before");
 
 menuButton.addEventListener('click', function () {
 		menuMobile.classList.toggle("active--menu-mobile");
-		closeMenu.classList.toggle("menu-stripe-close");
 	}
 
 )

@@ -219,8 +219,8 @@
   }
 
   #slider_bl .slider-wrapper {
-    width: 1270px;
-    overflow: scroll;
+    width: 964px;
+    overflow-x: scroll;
     border-radius: 5px;
     -webkit-transform: translateZ(0);
     -moz-transform: translateZ(0);
@@ -230,6 +230,10 @@
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
+  }
+
+  #slider_bl #slide1:checked ~ .slider-wrapper .inner {
+    margin-left: 45px;
   }
 
   #slider_bl article {

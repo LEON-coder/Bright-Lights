@@ -1233,6 +1233,7 @@ data {
   line-height: 27px;
   text-transform: uppercase;
   color: #fff;
+  text-decoration: none;
 }
 
 .contacts-artist__social-block {
@@ -1433,26 +1434,10 @@ data {
     margin-top: 20px;
   }
 
-  .nav__items {
-    /* list-style: none; */
-    /* margin-left: 0; */
-    /* flex-direction: column; */
-    /* width: 100%; */
-    /* position: absolute; */
-    /* left: -500px; */
-    /* top: 0; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* background: grey; */
-    /* height: 100%; */
-    /* z-index: 20; */
-    /* transition: 2s; */
-    /* display: flex; */
-  }
-
   .active--menu-mobile {
     display: flex;
     left: 0;
+    transition: 2s ease;
     -webkit-transition: 2s ease;
     -moz-transition: 2s ease;
     -ms-transition: 2s ease;
@@ -2059,30 +2044,14 @@ data {
     margin-top: 20px;
   }
 
-  .nav__items {
-    /* list-style: none; */
-    /* margin-left: 0; */
-    /* flex-direction: column; */
-    /* width: 100%; */
-    /* position: absolute; */
-    /* left: -500px; */
-    /* top: 0; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* background: grey; */
-    /* height: 100%; */
-    /* z-index: 20; */
-    /* transition: 2s; */
-    /* display: flex; */
-  }
-
   .active--menu-mobile {
     display: flex;
     left: 0;
-    -webkit-transition: 2s ease;
-    -moz-transition: 2s ease;
-    -ms-transition: 2s ease;
-    -o-transition: 2s ease;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
     background: #7a66cc;
   }
 
@@ -2706,10 +2675,11 @@ data {
   .active--menu-mobile {
     display: flex;
     left: 0;
-    -webkit-transition: 0.5s;
-    -moz-transition: 2s ease;
-    -ms-transition: 2s ease;
-    -o-transition: 2s ease;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
     background: #7a66cc;
     position: absolute;
     left: 0;
@@ -3169,12 +3139,17 @@ data {
   }
 
   .contacts-artist__management-contacts-block {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    margin-top: 60px;
+  }
+  .contacts-artist__management-contacts {
+    margin-left: 30px;
+    margin-top: 0;
   }
 
+  .contacts-artist__management-contacts:first-child {
+    margin-left: 0;
+    margin-top: 0;
+  }
   .contacts-artist__wrap {
     display: flex;
     width: 90%;
@@ -3188,15 +3163,19 @@ data {
 
   .artist-management-name {
     font-size: 14px;
-    width: 46px;
+    width: auto;
   }
 
   .artist-email-headline {
     font-size: 14px;
+    width: 120px;
   }
 
   .artist-name {
     font-size: 14px;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
   }
 
   .contacts-artist__social-block {
@@ -3247,16 +3226,6 @@ data {
     text-transform: uppercase;
     color: #fff;
     overflow-x: auto;
-  }
-
-  .artist-email-headline {
-    font-size: 14px;
-    width: 40px;
-  }
-
-  .artist-name {
-    font-size: 14px;
-    width: auto;
   }
 }
 
