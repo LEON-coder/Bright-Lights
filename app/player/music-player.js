@@ -1,11 +1,6 @@
 let audio = document.getElementById("audio");
 let buttonPlay = document.querySelector(".button-play");
 let time = document.querySelector(".time");
-let time2 = document.querySelector(".time-2");
-let time3 = document.querySelector(".time-3");
-let time4 = document.querySelector(".time-4");
-let time5 = document.querySelector(".time-5");
-let time6 = document.querySelector(".time-6");
 let newTrack1 = document.querySelector(".name-track-1");
 let newTrack2 = document.querySelector(".name-track-2");
 let newTrack3 = document.querySelector(".name-track-3");
@@ -13,7 +8,7 @@ let newTrack4 = document.querySelector(".name-track-4");
 let newTrack5 = document.querySelector(".name-track-5");
 let newTrack6 = document.querySelector(".name-track-6");
 let timePlaying = document.querySelector(".time-playing");
-let fulltime = document.querySelector(".full-time-playing");
+let fullTime = document.querySelector(".full-time");
 let track1 = document.querySelector(".track-1");
 let track2 = document.querySelector(".track-2");
 let track3 = document.querySelector(".track-3");
@@ -32,32 +27,38 @@ let trackName3 = document.querySelector(".last-track__name-track-3");
 let trackName4 = document.querySelector(".last-track__name-track-4");
 let trackName5 = document.querySelector(".last-track__name-track-5");
 let trackName6 = document.querySelector(".last-track__name-track-6");
+let volumeControl = document.getElementById("player-volume");
 
+volumeControl.addEventListener('mousemove',function () {
+	audio.volume = parseFloat(this.value / 10);
+});
 
 
 let playlist = [
-	'../music/3LAU_Bright_Lights_-_How_You_Love_Me_48268182.mp3',
-	'../music/Bright_Lights_Kaleena_Zanders_Kandy_-_War_For_Love_70971022.mp3',
-	'../music/Benny_Benassi_and_Pink_Is_Punk_feat_Bright_Lights_-_Ghost_Original_Radio_Edit_67157669.mp3',
-	'../music/Dyro_Hardwell_Bright_Lights_-_Never_Say_Goodbye_55725060.mp3',
-	'../music/Zeds_Dead_Dirtyphonics_Bright_Lights_-_Where_Are_You_Now_64370916.mp3',
-	'../music/Zedd_Bright_Lights_-_Follow_You_Down_48263215.mp3',
+	'track1.mp3',
+	'track2.mp3',
+	'track3.mp3',
+	'track4.mp3',
+	'track5.mp3',
+	'track6.mp3'
 ];
 
 
-let track;
+let track; // Переменная с индексом трека
 
+// Событие перед загрузкой страницы
 window.onload = function () {
-	track = 0;
+	track = 0; // Присваиваем переменной ноль
 }
 
 function switchTrack(numTrack) {
-	audio.src = './music/' + playlist[track];
+	audio.src = './music/' + playlist[numTrack];
 	audio.currentTime = 0;
+	audio.duration = '';
 	audio.play();
 };
 
-buttonPlay.addEventListener("click", function () {
+buttonPlay.addEventListener("click",function () {
 	if (audio.paused) {
 		audio.play();
 	} else {
@@ -80,13 +81,17 @@ let audioPlay = setInterval(function () {
 		switchTrack(track);
 	};
 
-	audio.addEventListener("click", function () {
+	audio.addEventListener("click",function () {
 		audio.style.color = "#7A66CC";
-	}, false);
+	},false);
 
-	audio.addEventListener('timeupdate', function () {
+	audio.addEventListener('timeupdate',function () {
 		timePlaying.innerHTML = secondsToTime(audio.currentTime);
-	}, false);
+	},false);
+
+	audio.addEventListener('duration',function () {
+		fullTime.innerHTML = (newTrack1.audioLength);
+	},false);
 
 	function secondsToTime(time) {
 
@@ -122,7 +127,7 @@ let audioPlay = setInterval(function () {
 
 
 
-newTrack1.addEventListener("click", function () {
+newTrack1.addEventListener("click",function () {
 	if (track1.paused) {
 		track1.play();
 		newTrack1.classList.add("active-button");
@@ -135,7 +140,7 @@ newTrack1.addEventListener("click", function () {
 		trackNumber1.classList.remove("active-button");
 	};
 
-	buttonPlay.addEventListener("click", function () {
+	buttonPlay.addEventListener("click",function () {
 		if (track1.paused) {
 			track1.play();
 		} else {
@@ -158,17 +163,17 @@ newTrack1.addEventListener("click", function () {
 			switchTrack(track);
 		};
 
-		newTrack1.addEventListener("click", function () {
+		newTrack1.addEventListener("click",function () {
 			track1.style.color = "#7A66CC";
-		}, false);
+		},false);
 
-		newTrack1.addEventListener('timeupdate', function () {
+		newTrack1.addEventListener('timeupdate',function () {
 			timePlaying.innerHTML = secondsToTime(newTrack1.currentTime);
-		}, false);
+		},false);
 
-		newTrack1.addEventListener('duration', function () {
+		newTrack1.addEventListener('duration',function () {
 			fulltime.innerHTML = (newTrack1.audioLength);
-		}, false);
+		},false);
 
 		newTrack1.onloadeddata = () => {
 			fulltime.innerHTML = (newTrack1.audioLength);
@@ -206,7 +211,7 @@ newTrack1.addEventListener("click", function () {
 });
 
 
-newTrack2.addEventListener("click", function () {
+newTrack2.addEventListener("click",function () {
 	if (track2.paused) {
 		track2.play();
 		newTrack2.classList.add("active-button");
@@ -220,7 +225,7 @@ newTrack2.addEventListener("click", function () {
 	};
 
 
-	buttonPlay.addEventListener("click", function () {
+	buttonPlay.addEventListener("click",function () {
 		if (track2.paused) {
 			track2.play();
 		} else {
@@ -231,7 +236,7 @@ newTrack2.addEventListener("click", function () {
 	audioPlay = setInterval(function () {
 		let audioTime = Math.round(track2.currentTime);
 		let audioLength = Math.round(track2.duration);
-		time2.style.width = (audioTime * 100) / audioLength + '%';
+		time.style.width = (audioTime * 100) / audioLength + '%';
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
@@ -244,17 +249,17 @@ newTrack2.addEventListener("click", function () {
 
 
 
-		newTrack2.addEventListener("click", function () {
+		newTrack2.addEventListener("click",function () {
 			track2.style.color = "#7A66CC";
-		}, false)
+		},false)
 
-		track2.addEventListener('timeupdate', function () {
+		track2.addEventListener('timeupdate',function () {
 			timePlaying.innerHTML = secondsToTime(track2.currentTime);
-		}, false);
+		},false);
 
-		newTrack2.addEventListener('duration', function () {
-			fulltime.innerHTML = (newTrack2.audioLength);
-		}, false);
+		newTrack2.addEventListener('duration',function () {
+			fullTime.innerHTML = (newTrack2.audioLength);
+		},false);
 		// рассчет отображаемого времени
 		function secondsToTime(time) {
 
@@ -291,7 +296,7 @@ newTrack2.addEventListener("click", function () {
 
 
 
-newTrack3.addEventListener("click", function () {
+newTrack3.addEventListener("click",function () {
 	if (track3.paused) {
 		track3.play();
 		newTrack3.classList.add("active-button");
@@ -304,19 +309,12 @@ newTrack3.addEventListener("click", function () {
 		trackNumber3.classList.remove("active-button");
 	};
 
-	buttonPlay.addEventListener("click", function () {
-		if (track3.paused) {
-			track3.play();
-		} else {
-			track3.pause();
-		}
-	})
 
 	audioPlay = setInterval(function () {
 
 		let audioTime = Math.round(track3.currentTime);
 		let audioLength = Math.round(track3.duration);
-		time3.style.width = (audioTime * 100) / audioLength + '%';
+		time.style.width = (audioTime * 100) / audioLength + '%';
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
@@ -324,54 +322,58 @@ newTrack3.addEventListener("click", function () {
 
 		} else if (audioTime == audioLength && track >= 6) {
 			track = 0; // То присваиваем treck ноль
-			switchTrack(track); // Меняем трек			 
+			switchTrack(track); // Меняем трек
 		};
 
-		newTrack3.addEventListener("click", function () {
-			track3.style.color = "#7A66CC";
-		}, false);
+		newTrack2.addEventListener("click",function () {
+			track2.style.color = "#7A66CC";
+		},false)
 
-		track3.addEventListener('timeupdate', function () {
+		track2.addEventListener('timeupdate',function () {
 			timePlaying.innerHTML = secondsToTime(track3.currentTime);
-		}, false);
+		},false);
+
+		newTrack2.addEventListener('duration',function () {
+			fullTime.innerHTML = (newTrack3.audioLength);
+		},false);
+		// рассчет отображаемого времени
+		function secondsToTime(time) {
+
+			var h = Math.floor(time / (60 * 60)),
+				dm = time % (60 * 60),
+				m = Math.floor(dm / 60),
+				ds = dm % 60,
+				s = Math.ceil(ds);
+			if (s === 60) {
+				s = 0;
+				m = m + 1;
+			}
+			if (s < 10) {
+				s = '0' + s;
+			}
+			if (m === 60) {
+				m = 0;
+				h = h + 1;
+			}
+			if (m < 10) {
+				m = '0' + m;
+			}
+			if (h === 0) {
+				fulltime = m + ':' + s;
+			} else {
+				fulltime = h + ':' + m + ':' + s;
+			}
+			return fulltime;
+		}
 	})
 
-
-	function secondsToTime(time) {
-
-		var h = Math.floor(time / (60 * 60)),
-			dm = time % (60 * 60),
-			m = Math.floor(dm / 60),
-			ds = dm % 60,
-			s = Math.ceil(ds);
-		if (s === 60) {
-			s = 0;
-			m = m + 1;
-		}
-		if (s < 10) {
-			s = '0' + s;
-		}
-		if (m === 60) {
-			m = 0;
-			h = h + 1;
-		}
-		if (m < 10) {
-			m = '0' + m;
-		}
-		if (h === 0) {
-			fulltime = m + ':' + s;
-		} else {
-			fulltime = h + ':' + m + ':' + s;
-		}
-		return fulltime;
-	}
 });
 
 
 
 
 
-newTrack4.addEventListener("click", function () {
+newTrack4.addEventListener("click",function () {
 	if (track4.paused) {
 		track4.play();
 		newTrack4.classList.add("active-button");
@@ -384,19 +386,12 @@ newTrack4.addEventListener("click", function () {
 		trackNumber4.classList.remove("active-button");
 	};
 
-	buttonPlay.addEventListener("click", function () {
-		if (track4.paused) {
-			track4.play();
-		} else {
-			track4.pause();
-		}
-	})
 
 	audioPlay = setInterval(function () {
 
 		let audioTime = Math.round(track4.currentTime);
 		let audioLength = Math.round(track4.duration);
-		time4.style.width = (audioTime * 100) / audioLength + '%';
+		time.style.width = (audioTime * 100) / audioLength + '%';
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
@@ -407,14 +402,20 @@ newTrack4.addEventListener("click", function () {
 			switchTrack(track);
 		};
 
-		newTrack4.addEventListener("click", function () {
+		newTrack4.addEventListener("click",function () {
 			track4.style.color = "#7A66CC";
-		}, false);
+		},false);
 
-		track4.addEventListener('timeupdate', function () {
+		track4.addEventListener('timeupdate',function () {
 			timePlaying.innerHTML = secondsToTime(track4.currentTime);
-		}, false);
+		},false);
+
+		newTrack4.addEventListener('duration',function () {
+			fullTime.innerHTML = (newTrack3.audioLength);
+		},false);
 	})
+
+
 
 	function secondsToTime(time) {
 
@@ -450,7 +451,7 @@ newTrack4.addEventListener("click", function () {
 
 
 
-newTrack5.addEventListener("click", function () {
+newTrack5.addEventListener("click",function () {
 	if (track5.paused) {
 		track5.play();
 		newTrack5.classList.add("active-button");
@@ -463,19 +464,11 @@ newTrack5.addEventListener("click", function () {
 		trackNumber5.classList.remove("active-button");
 	};
 
-	buttonPlay.addEventListener("click", function () {
-		if (track5.paused) {
-			track5.play();
-		} else {
-			track5.pause();
-		}
-	})
-
 	audioPlay = setInterval(function () {
 
 		let audioTime = Math.round(track5.currentTime);
 		let audioLength = Math.round(track5.duration);
-		time5.style.width = (audioTime * 100) / audioLength + '%';
+		time.style.width = (audioTime * 100) / audioLength + '%';
 
 		if (audioTime == audioLength && track < 6) {
 			track++;
@@ -487,14 +480,18 @@ newTrack5.addEventListener("click", function () {
 		};
 
 
-		track5.addEventListener('timeupdate', function () {
+		track5.addEventListener('timeupdate',function () {
 			timePlaying.innerHTML = secondsToTime(track5.currentTime);
-		}, false);
+		},false);
 
 
-		newTrack5.addEventListener("click", function () {
+		newTrack5.addEventListener("click",function () {
 			track5.style.color = "#7A66CC";
-		}, false);
+		},false);
+
+		newTrack5.addEventListener('duration',function () {
+			fullTime.innerHTML = (newTrack5.audioLength);
+		},false);
 	})
 
 	function secondsToTime(time) {
@@ -529,7 +526,7 @@ newTrack5.addEventListener("click", function () {
 
 
 
-newTrack6.addEventListener("click", function () {
+newTrack6.addEventListener("click",function () {
 	if (track6.paused) {
 		track6.play();
 		newTrack6.classList.add("active-button");
@@ -542,19 +539,12 @@ newTrack6.addEventListener("click", function () {
 		trackNumber6.classList.remove("active-button");
 	};
 
-	buttonPlay.addEventListener("click", function () {
-		if (track6.paused) {
-			track6.play();
-		} else {
-			track6.pause();
-		}
-	})
 
 	audioPlay = setInterval(function () {
 
 		let audioTime = Math.round(track6.currentTime);
 		let audioLength = Math.round(track6.duration);
-		time6.style.width = (audioTime * 100) / audioLength + '%';
+		time.style.width = (audioTime * 100) / audioLength + '%';
 
 		if (audioTime == audioLength) {
 			track++;
@@ -565,13 +555,17 @@ newTrack6.addEventListener("click", function () {
 			switchTrack(track);
 		};
 
-		track6.addEventListener('timeupdate', function () {
+		track6.addEventListener('timeupdate',function () {
 			timePlaying.innerHTML = secondsToTime(track6.currentTime);
-		}, false)
+		},false)
 
-		newTrack6.addEventListener("click", function () {
+		newTrack6.addEventListener("click",function () {
 			track6.style.color = "#7A66CC";
-		}, false)
+		},false)
+
+		newTrack6.addEventListener('duration',function () {
+			fullTime.innerHTML = (newTrack6.audioLength);
+		},false);
 	})
 
 	function secondsToTime(time) {
