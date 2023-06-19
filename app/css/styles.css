@@ -710,7 +710,6 @@ nav {
   display      : flex;
   align-items  : center;
   margin-bottom: 20px;
-  cursor       : pointer;
 }
 
 #player-volume {
@@ -1831,7 +1830,6 @@ data {
     display      : flex;
     align-items  : baseline;
     margin-bottom: 70px;
-    cursor       : pointer;
     height       : auto;
     width        : 450px;
   }
@@ -2441,7 +2439,6 @@ data {
     display      : flex;
     align-items  : baseline;
     margin-bottom: 70px;
-    cursor       : pointer;
     height       : auto;
     width        : 450px;
   }
@@ -3102,7 +3099,7 @@ data {
     background-color         : #7a66cc;
     width                    : 0;
     background-size          : 200% 100%;
-    background-image         : linear-gradient(to left, #7a66cc, #fff);
+    background-image         : linear-gradient(to right, #7a66cc);
     -webkit-animation        : progressbar 2s ease infinite;
     -moz-animation           : progressbar 2s ease infinite;
     -o-animation             : progressbar 2s ease infinite;
@@ -3164,7 +3161,6 @@ data {
     display      : flex;
     align-items  : baseline;
     margin-bottom: 30px;
-    cursor       : pointer;
     height       : auto;
     width        : 100%;
   }
