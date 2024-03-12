@@ -63,11 +63,9 @@ btnPlay.addEventListener("click",function () {
 		audio.play();
 		audio.currentTime = "";
 		audio.fullTime = "";
-		audio.src = './app/player/audio/' + playlist[numTreck];
 
 	} else {
 		audio.pause();
-		clearInterval(audioPlay)
 	};
 
 	function switchTreck(numTreck) {
@@ -219,7 +217,8 @@ track2.addEventListener("click",function () {
 	if (audio2.paused) {
 		audio2.play();
 		track2.classList.add('active-button');
-		audio2.currentTime = "";
+		audio.currentTime = "";
+		audio.fullTime = audio.duration;
 
 	} else {
 		audio2.pause();
@@ -229,9 +228,9 @@ track2.addEventListener("click",function () {
 	// Запуск интервала
 	audioPlay = setInterval(function () {
 		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio.currentTime);
+		let audioTime = Math.round(audio2.currentTime);
 		// Получаем всё время песни
-		let audioLength = Math.round(audio.duration)
+		let audioLength = Math.round(audio2.duration)
 		// Назначаем ширину элементу time
 		time.style.width = (audioTime * 100) / audioLength + '%';
 		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
@@ -246,11 +245,11 @@ track2.addEventListener("click",function () {
 		}
 
 		track2.addEventListener('duration',function () {
-			fullTime.innerHTML = secondsToTime(audio.audioLength);
+			fullTime.innerHTML = audio2.audioLength;
 		},false);
 
 		track2.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
+			timePlaying.innerHTML = secondsToTime(audio2.currentTime);
 		},false);
 
 		function secondsToTime(time) {
@@ -301,9 +300,9 @@ track3.addEventListener("click",function () {
 	// Запуск интервала
 	audioPlay = setInterval(function () {
 		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio.currentTime);
+		let audioTime = Math.round(audio3.currentTime);
 		// Получаем всё время песни
-		let audioLength = Math.round(audio.duration)
+		let audioLength = Math.round(audio3.duration)
 		// Назначаем ширину элементу time
 		time.style.width = (audioTime * 100) / audioLength + '%';
 		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
@@ -318,11 +317,11 @@ track3.addEventListener("click",function () {
 		}
 
 		audio.addEventListener('duration',function () {
-			fullTime.innerHTML = (audio.audioLength);
+			fullTime.innerHTML = (audio3.audioLength);
 		},false);
 
 		audio.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
+			timePlaying.innerHTML = secondsToTime(audio3.currentTime);
 		},false);
 
 		function secondsToTime(time) {
