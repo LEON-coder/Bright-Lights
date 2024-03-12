@@ -21,7 +21,7 @@ function compilePug() {
             pretty:true
         }))
     .pipe(gulp.dest('./'))
-    .pipe(browserSync.stream());     
+    .pipe(browserSync.stream());
 }
 
 
@@ -29,23 +29,23 @@ function compilePug() {
 function CSScompiling() {
     return gulp.src("./src/scss/**/*.scss")
     .pipe(cleanCSS())
-    .pipe(plumber())    
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({pretty: true}).on("error", sass.logError))
-    .pipe(autoprefixer())    
+    .pipe(autoprefixer())
     .pipe(plumber.stop())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('app/css')) 
-    .pipe(browserSync.stream());  
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.stream());
 }
 
 
  function script() {
-    return gulp.src("src/js/**/*.js")  
+    return gulp.src("src/js/**/*.js")
     .pipe(uglify())
     .pipe(browserSync.stream())
     .pipe(gulp.dest('app/js'));
-} 
+}
 
 
 function liveserver() {
@@ -73,14 +73,14 @@ function watcher() {
 
 function imageCompressing() {
     return gulp.src([
-        "src/img/**/*.{jpg,png,gif,svg}", 
+        "src/img/**/*.{jpg,png,gif,svg}",
         "!src/img/sprites/**/*"])
     .pipe(imagemin([
         imagemin.gifsicle({interlaced: true}),
         imagemin.mozjpeg({quality: 75, progressive: true}),
         imagemin.optipng({optimizationLevel: 5}),
         imagemin.svgo({
-            plugins: [ 
+            plugins: [
                 {removeViewBox: true},
                 {cleanupIDs: false}
             ]

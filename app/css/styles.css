@@ -9,8 +9,8 @@ body {
 }
 
 @font-face {
-  font-family: 'poppins';
-  src        : url(../../app/fonts/poppins/Poppinsregular.woff2);
+  font-family: 'Poppins';
+  src        : url(/app/fonts/poppins/Poppinsregular.woff2);
 }
 
 header {
@@ -204,7 +204,7 @@ nav {
 .describe-1,
 .describe-2,
 .describe-3 {
-  font-family : Poppins;
+  font-family : 'Poppins';
   font-style  : normal;
   font-weight : 500;
   font-size   : 16px;
@@ -310,7 +310,7 @@ nav {
 .bright-lights-biography__item {
   width      : 195px;
   height     : 27px;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-style : normal;
   font-weight: 600;
   font-size  : 18px;
@@ -623,7 +623,7 @@ nav {
 .last-track__number-6 {
   width       : 15px;
   height      : 21px;
-  font-family : Poppins;
+  font-family : 'Poppins';
   font-style  : normal;
   font-weight : 700;
   font-size   : 14px;
@@ -641,12 +641,13 @@ nav {
 .last-track__name-track-6 {
   width      : 505px;
   height     : 27px;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-style : normal;
   font-weight: 400;
   font-size  : 18px;
   line-height: 27px;
   color      : #fff;
+  cursor: pointer;
 }
 
 .active-button {
@@ -659,6 +660,8 @@ nav {
   animation         : CrimsonTrackPulse 2s infinite;
   -webkit-animation : CrimsonTrackPulse 2s infinite;
 }
+
+
 
 @keyframes CrimsonTrackPulse {
   0% {
@@ -3031,15 +3034,6 @@ data {
   }
 
 
-  .play-icon {
-    width          : 22px;
-    height         : 22px;
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-  }
-
-
   .last-tracks__name {
     width      : 180px;
     height     : 72px;
@@ -3059,7 +3053,7 @@ data {
   .last-track__name-track-5,
   .last-track__name-track-6 {
     width      : 505px;
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-style : normal;
     font-weight: 400;
     font-size  : 14px;
@@ -3132,6 +3126,8 @@ data {
     margin-left: 0;
     margin-top : 40px;
   }
+
+  .track-name {}
 
   .last-tracks__playlist {
     margin-top: 50px;
