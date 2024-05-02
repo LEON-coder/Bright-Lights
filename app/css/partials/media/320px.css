@@ -482,12 +482,15 @@
     justify-content: center;
     width: 100%;
   }
-  .contacts-artist__management-contacts-block {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
+.contacts-artist__management-contacts-block {
+    margin-top: 60px;
+    padding: 0;
+    flex-wrap: wrap;
+}
+.contacts-artist__management-contacts:first-child {
+    margin-left: 0;
+    margin-top: 0;
+}
   .contacts-artist__wrap {
     display: flex;
     width: 90%;
@@ -498,13 +501,16 @@
     flex-direction: column;
     margin-bottom: 40px;
   }
-  .artist-management-name {
+.artist-management-name {
     font-size: 14px;
-    width: 46px;
-  }
-  .artist-email-headline {
+    width: auto;
+    text-align: left;
+}
+.artist-email-headline {
     font-size: 14px;
-  }
+    width: 120px;
+    text-align: justify;
+}
   .artist-name {
     font-size: 14px;
   }
@@ -515,22 +521,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  .artist-email {
-    width: 146px;
-    height: 54px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 27px;
-    text-transform: uppercase;
-    color: #fff;
-    overflow-x: auto;
-  }
-  .artist-email-headline {
-    font-size: 14px;
-    width: 40px;
-  }
+
   .artist-name {
     font-size: 14px;
     width: auto;
