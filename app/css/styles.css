@@ -80,7 +80,7 @@ nav {
 .header__header {
   width      : 270px;
   height     : 72px;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-style : normal;
   font-weight: 700;
   font-size  : 48px;
@@ -122,6 +122,69 @@ nav {
 
 .play {
   display: flex;
+  cursor: pointer;
+}
+
+.progress__container {
+  background: #e4e9ed;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: 100%;
+  height: 2px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.progress {
+  background: #7A66CC;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  height: 2px;
+}
+
+.title-track {
+  width: 30%;
+  height: auto;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 27px;
+  color: #fff;
+}
+
+.song {
+  display: flex;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: #fff;
+  opacity: 0.5;
+  width: 100%;
+  justify-content: flex-end; 
+}
+
+.animation {
+  color: #7A66CC;
+  opacity: 1;
+  animation: animationSocial 3s infinite;
+  -webkit-animation: animationSocial 3s infinite;
+}
+
+.track-block-info {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .time-header {
@@ -566,6 +629,12 @@ nav {
   display        : flex;
   justify-content: center;
   align-items    : center;
+}
+
+.accent_color {
+  color:#7A66CC;
+  animation: last-trackAnimationFrame 2s infinite;
+  -webkit-animation: last-trackAnimationFrame 2s infinite;
 }
 
 .time-playing {

@@ -33,7 +33,7 @@
         <p class="header__header">New Single</p>
         <p class="header__name-sing">War For Love</p>
         <div class="audio-player">
-          <audio id="audio-header" src="./app/player/audio/track3.mp3"></audio>
+          <audio id="audio-header" src="./app/player/audio/Bright Lights, Kaleena Zanders, Kandy — War For Love.mp3"></audio>
           <div id="controls-header">
             <div class="button-play-header">
               <img src="./app/img/header/player/play_icon.svg" alt="">
@@ -147,60 +147,55 @@
             <img class="last-tracks-icon" src="./app/img/last-tracks/icon.png" alt="">
             <p class="last-tracks__name">Last tracks</p>
           </div>
+
+
           <div class="last-tracks__player">
             <div id="controls">
-              <div class="button-play">
+              <div class="play">
                 <img class="play-icon" src="./app/img/last-tracks/play-icon.svg" alt="">
               </div>
-              <input id="player-volume" type="range" min="0" max="100" value="20" step="5" />
-              <div class="audio-track">
-                <div class="time"> </div>
-                <div class="track-name"> </div>
+              <input id="player-volume" type="range" min="0" max="100" value="20" step="5">
+              <div class="progress__container">
+                <div class="progress"></div>
               </div>
-              <div class="time-playing"> </div>
-              <div class="full-time"> </div>
+
+              <div class="current_time"></div>
+              <div class="total_time"></div>
             </div>
           </div>
-          <audio id="audio" src="./app/player/audio/track1.mp3"></audio>
-          <audio id="audio-2" src="./app/player/audio/track3.mp3"></audio>
-          <audio id="audio-3" src="./app/player/audio/track2.mp3"></audio>
-          <audio id="audio-4" src="./app/player/audio/track4.mp3"></audio>
-          <audio id="audio-5" src="./app/player/audio/track5.mp3"></audio>
-          <audio id="audio-6" src="./app/player/audio/track6.mp3"></audio>
+          <div class="track-block-info">
+            <div class="song"> </div>
+          </div>
+          <audio class="audio" src="./app/player/audio/Bright Lights, Kaleena Zanders, Kandy — War For Love.mp3"></audio>
 
-          <div class="last-tracks__playlist"><a class="last-tracks__block-track">
+          <div class="last-tracks__playlist">
+            <div class="last-tracks__block-track">
               <div class="last-track__number-1"> 01</div>
-              <div class="last-track__name-track-1 name-track-1">3LAU, Bright Lights — How You Love Me</div>
+              <div class="last-track__name-track-1">3LAU, Bright Lights — How You Love Me</div>
 
-            </a><a class="last-tracks__block-track">
+            <div class="last-tracks__block-track">
               <div class="last-track__number-2"> 02</div>
-              <div class="last-track__name-track-2 name-track-2"> Bright Lights, Kaleena Zanders, Kandy — War For
-                Love
+              <div class="last-track__name-track-2"> Bright Lights, Kaleena Zanders, Kandy — War For Love
               </div>
-
-            </a><a class="last-tracks__block-track">
+</div>
+            <div class="last-tracks__block-track">
               <div class="last-track__number-3"> 03</div>
-              <div class="last-track__name-track-3 name-track-3">Pink Is Punk, Benny Benassi, Bright Lights —
-                Ghost
+              <div class="last-track__name-track-3">Pink Is Punk, Benny Benassi, Bright Lights — Ghost
               </div>
-
-            </a><a class="last-tracks__block-track">
+</div>
+            <div class="last-tracks__block-track">
               <div class="last-track__number-4"> 04</div>
-              <div class="last-track__name-track-4 name-track-4">Hardwell, Dyro, Bright Lights — Never Say Goodbye
-              </div>
-
-            </a><a class="last-tracks__block-track">
+              <div class="last-track__name-track-4">Hardwell, Dyro, Bright Lights — Never Say Goodbye </div>
+</div>
+            <div class="last-tracks__block-track">
               <div class="last-track__number-5"> 05</div>
-              <div class="last-track__name-track-5 name-track-5">Zeds Dead, Dirtyphonics, Bright Lights — Where
-                Are
-                You
-                Now</div>
-
-            </a><a class="last-tracks__block-track">
+              <div class="last-track__name-track-5">Zeds Dead, Dirtyphonics, Bright Lights — Where Are You Now</div>
+</div>
+            <div class="last-tracks__block-track">
               <div class="last-track__number-6"> 06</div>
               <div class="last-track__name-track-6 name-track-6">Zedd, Bright Lights — Follow You Down</div>
-
-            </a></div>
+</div>
+            </div>
           <div class="control-elements">
           </div>
         </div>
@@ -432,5 +427,4 @@
   <script src="app/js/mobile-menu.js"></script>
   <script src="app/player/media-player.js"></script>
 </body>
-
 </html>

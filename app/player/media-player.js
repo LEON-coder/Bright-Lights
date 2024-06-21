@@ -1,575 +1,212 @@
 
-let audio = document.getElementById("audio");    // Берём элемент audio
-let audio2 = document.getElementById("audio-2");    // Берём элемент audio
-let audio3 = document.getElementById("audio-3");    // Берём элемент audio
-let audio4 = document.getElementById("audio-4");    // Берём элемент audio
-let audio5 = document.getElementById("audio-5");    // Берём элемент audio
-let audio6 = document.getElementById("audio-6");   // Берём элемент audio
-
-let time = document.querySelector(".time");      // Берём аудио дорожку
-let btnPlay = document.querySelector(".button-play");   // Берём кнопку проигрывания
-let btnPause = document.querySelector(".pause"); // Берём кнопку паузы
-let btnPrev = document.querySelector(".prev");   // Берём кнопку переключения предыдущего трека
-let btnNext = document.querySelector(".next");   // Берём кнопку переключение следующего трека
-let timePlaying = document.querySelector(".time-playing");// Текущее время трека
-let fullTime = document.querySelector(".full-time"); // Полное время трека
-let trackName = document.querySelector(".track-name"); // Полное время трека
-
-
-let track1 = document.querySelector('.last-track__name-track-1');
-let track2 = document.querySelector('.last-track__name-track-2');
-let track3 = document.querySelector('.last-track__name-track-3');
-let track4 = document.querySelector('.last-track__name-track-4');
-let track5 = document.querySelector('.last-track__name-track-5');
-let track6 = document.querySelector('.last-track__name-track-6');
+let player = document.querySelector('.last-tracks__player');
+let playBtn = document.querySelector('.play');
+let audio = document.querySelector('.audio');
+let progressContainer = document.querySelector('.progress__container');
+let progress = document.querySelector('.progress');
+let title = document.querySelector('.song');
+let currentTime = document.querySelector('.current_time');
+let totalTime = document.querySelector('.total_time');
+let nameTrack1 = document.querySelector('.last-track__name-track-1');
+let nameTrack2 = document.querySelector('.last-track__name-track-2');
+let nameTrack3 = document.querySelector('.last-track__name-track-3');
+let nameTrack4 = document.querySelector('.last-track__name-track-4');
+let nameTrack5 = document.querySelector('.last-track__name-track-5');
+let nameTrack6 = document.querySelector('.last-track__name-track-6');
 
 
 
+// Название песен
+const songs = ['3LAU, Bright Lights — How You Love Me', 'Bright Lights, Kaleena Zanders, Kandy — War For Love', 'Hardwell, Dyro, Bright Lights — Never Say Goodbye', 'Zeds Dead, Dirtyphonics, Bright Lights — Where Are You Now', 'Zedd, Bright Lights — Follow You Down']
 
-// Массив с названиями песен
-let playlist = [
-	'track1.mp3',
-	'track2.mp3',
-	'track3.mp3',
-	'track4.mp3',
-	'track5.mp3',
-	'track6.mp3',
-];
+// Песня по умолчанию
+let songIndex = 0
 
-let treck; // Переменная с индексом трека
+// Инициализация 
+function loadSong(song) {
+title.innerHTML = song
+audio.src = `app/player/audio/${song}.mp3`
+// coverImg.src = `img/cover${songIndex + 1}.png`
+}
 
-// Событие перед загрузкой страницы
-window.onload = function () {
-	treck = 0; // Присваиваем переменной ноль
+loadSong(songs[songIndex])
+
+
+// Play
+function playSong() {
+  player.classList.add('play')
+	title.classList.add('animation')
+  // cover.classList.add('active')
+  // imgSrc.src = './img/pause-stop-music-sound-audio-speaker-volume-svgrepo-com.svg'
+  audio.play()
+}
+// Pause
+function pauseSong() {
+  player.classList.remove('play')
+	title.classList.remove('animation')
+  // cover.classList.remove('active')
+  // imgSrc.src = '/img/play-svgrepo-com.svg'
+
+  audio.pause()
 }
 
 
-// function switchTreck(numTreck) {
-// 	// Меняем значение атрибута src
-// 	audio.src = './app/player/audio/' + playlist[numTreck];
-// 	// Назначаем время песни ноль
-// 	audio.currentTime = 0;
-// 	// Включаем песню
-// 	audio.play();
-// 	// Обозначаем название трека
-// 	trackName.innerHTML = "";
-// 	treck.innerHTML = fullTime;
+playBtn.addEventListener('click', () => {
+ const isPlaying = player.classList.contains('play')
+ if(isPlaying) {
+  pauseSong()
+ } else {
+  playSong()
+ }
+})
+
+// Variable play track
+nameTrack1.addEventListener('click', () => {
+	const isPlaying = player.classList.contains('play');
+	if(isPlaying) {		
+		nameTrack1.classList.remove('accent_color');
+		title.innerHTML = '3LAU, Bright Lights — How You Love Me'
+audio.src = `app/player/audio/3LAU, Bright Lights — How You Love Me.mp3`
+		pauseSong()
+	 } else {	
+		nameTrack1.classList.add('accent_color');	
+	title.innerHTML = '3LAU, Bright Lights — How You Love Me'
+audio.src = `app/player/audio/3LAU, Bright Lights — How You Love Me.mp3`
+		playSong()
+	 };
+	
+} );
+
+nameTrack2.addEventListener('click', () => {
+	const isPlaying = player.classList.contains('play')
+	if(isPlaying) {
+		nameTrack2.classList.remove('accent_color');
+		title.innerHTML = 'Bright Lights, Kaleena Zanders, Kandy — War For Love'
+audio.src = `app/player/audio/Bright Lights, Kaleena Zanders, Kandy — War For Love.mp3`
+		pauseSong()
+	 } else {
+		nameTrack2.classList.add('accent_color');
+	title.innerHTML = 'Bright Lights, Kaleena Zanders, Kandy — War For Love'
+audio.src = `app/player/audio/Bright Lights, Kaleena Zanders, Kandy — War For Love.mp3`
+		playSong()
+	 }
+} );
+
+nameTrack3.addEventListener('click', () => {
+	const isPlaying = player.classList.contains('play')
+	if(isPlaying) {
+		nameTrack3.classList.remove('accent_color');
+		title.innerHTML = 'Pink Is Punk, Benny Benassi, Bright Lights — Ghost'
+audio.src = `app/player/audio/Pink Is Punk, Benny Benassi, Bright Lights — Ghost.mp3`
+		pauseSong()
+	 } else {
+		nameTrack3.classList.add('accent_color');
+	title.innerHTML = 'Pink Is Punk, Benny Benassi, Bright Lights — Ghost'
+audio.src = `app/player/audio/Pink Is Punk, Benny Benassi, Bright Lights — Ghost.mp3`
+		playSong()
+	 }
+} );
+
+nameTrack4.addEventListener('click', () => {
+	const isPlaying = player.classList.contains('play')
+	if(isPlaying) {
+		nameTrack4.classList.remove('accent_color');
+		title.innerHTML = 'Hardwell, Dyro, Bright Lights — Never Say Goodbye'
+audio.src = `app/player/audio/Hardwell, Dyro, Bright Lights — Never Say Goodbye.mp3`
+		pauseSong()
+	 } else {
+		nameTrack4.classList.add('accent_color');
+	title.innerHTML = 'Hardwell, Dyro, Bright Lights — Never Say Goodbye'
+audio.src = `app/player/audio/Hardwell, Dyro, Bright Lights — Never Say Goodbye.mp3`
+		playSong()
+	 }
+} );
+
+nameTrack5.addEventListener('click', () => {
+	const isPlaying = player.classList.contains('play')
+	if(isPlaying) {
+		nameTrack5.classList.remove('accent_color');
+		title.innerHTML = 'Zeds Dead, Dirtyphonics, Bright Lights — Where Are You Now'
+audio.src = `app/player/audio/Zeds Dead, Dirtyphonics, Bright Lights — Where Are You Now.mp3`
+		pauseSong()
+	 } else {
+		nameTrack5.classList.add('accent_color');
+	title.innerHTML = 'Zeds Dead, Dirtyphonics, Bright Lights — Where Are You Now'
+audio.src = `app/player/audio/Zeds Dead, Dirtyphonics, Bright Lights — Where Are You Now.mp3`
+		playSong()
+	 }
+} );
+
+nameTrack6.addEventListener('click', () => {
+	const isPlaying = player.classList.contains('play')
+	if(isPlaying) {
+		nameTrack6.classList.remove('accent_color');
+		title.innerHTML = 'Zedd, Bright Lights — Follow You Down'
+audio.src = `app/player/audio/Zedd, Bright Lights — Follow You Down.mp3`
+		pauseSong()
+	 } else {
+		nameTrack6.classList.add('accent_color');
+	title.innerHTML = 'Zedd, Bright Lights — Follow You Down'
+audio.src = `app/player/audio/Zedd, Bright Lights — Follow You Down.mp3`
+		playSong()
+	 }
+} );
+
+
+// Next song
+function nextSong() {
+  songIndex++
+
+  if (songIndex > songs.length -1) {
+    songIndex = 0
+  }
+  loadSong(songs[songIndex])
+  playSong()
+}
+
+
+// nextBtn.addEventListener('click', nextSong)
+
+// // Prev song
+// function prevSong() {
+//   songIndex--
+
+//   if (songIndex < 0) {
+//     songIndex = songs.length -1
+//   }
+//   loadSong(songs[songIndex])
+//   playSong()
 // }
 
 
-btnPlay.addEventListener("click",function () {
-	// Запуск песни
-	if (audio.paused) {
-		audio.play();
-		audio.currentTime = "";
-		audio.fullTime = "";
-
-	} else {
-		audio.pause();
-	};
-
-	function switchTreck(numTreck) {
-		// Меняем значение атрибута src
-		audio.src = './app/player/audio/' + playlist[numTreck];
-		// Назначаем время песни ноль
-		audio.currentTime = 0;
-		// Включаем песню
-		audio.play();
-		// Обозначаем название трека
-		trackName.innerHTML = "";
-		treck.innerHTML = audioLength;
-	}
-
-	// Запуск интервала
-	audioPlay = setInterval(function () {
-		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio.currentTime);
-		// Получаем всё время песни
-		let audioLength = Math.round(audio.duration)
-		// Назначаем ширину элементу time
-		time.style.width = (audioTime * 100) / audioLength + '%';
-		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-		// И проверяем что переменная treck меньше четырёх
-		if (audioTime == audioLength && treck < 6) {
-			treck++; // То Увеличиваем переменную
-			switchTreck(treck); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-		} else if (audioTime == audioLength && treck >= 6) {
-			treck = 0; // То присваиваем treck ноль
-			switchTreck(treck); //Меняем трек
-		}
-
-		audio.addEventListener('duration',function () {
-			fullTime.innerHTML = secondsToTime(audio.audioLength);
-		},false);
-
-		audio.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
-		},false);
-
-		function secondsToTime(time) {
-
-			var h = Math.floor(time / (60 * 60)),
-				dm = time % (60 * 60),
-				m = Math.floor(dm / 60),
-				ds = dm % 60,
-				s = Math.ceil(ds);
-			if (s === 60) {
-				s = 0;
-				m = m + 1;
-			}
-			if (s < 10) {
-				s = '0' + s;
-			}
-			if (m === 60) {
-				m = 0;
-				h = h + 1;
-			}
-			if (m < 10) {
-				m = '0' + m;
-			}
-			if (h === 0) {
-				fulltime = m + ':' + s;
-			} else {
-				fulltime = h + ':' + m + ':' + s;
-			}
-			return fulltime;
-		};
-	},10)
-});
+// prevBtn.addEventListener('click', prevSong)
 
 
-track1.addEventListener("click",function () {
-	// Запуск песни
-	if (audio.paused) {
-		audio.play();
-		audio.currentTime = "";
-		audio.fullTime = audio.duration;
-		track1.classList.add('active-button');
+// Progress bar
+function updateProgress(e) {
+const {duration, currentTime} = e.srcElement
+const progressPercent = (currentTime / duration) * 100
+progress.style.width = `${progressPercent}%`
+}
+
+audio.addEventListener('timeupdate', updateProgress)
+
+// Set progress
+function setProgress(e) {
+const width = this.clientWidth
+const clickX = e.offsetX
+const duration = audio.duration
+audio.currentTime = (clickX / width) * duration
+}
+progressContainer.addEventListener('click', setProgress)
 
 
-	} else {
-		audio.pause();
-		track1.classList.remove('active-button');
-		clearInterval(audioPlay)
-	}
-	// Запуск интервала
-	audioPlay = setInterval(function () {
-		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio.currentTime);
-		// Получаем всё время песни
-		let audioLength = Math.round(audio.duration)
-		// Назначаем ширину элементу time
-		time.style.width = (audioTime * 100) / audioLength + '%';
-		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-		// И проверяем что переменная treck меньше четырёх
-		if (audioTime == audioLength && treck < 6) {
-			treck++; // То Увеличиваем переменную
-			switchTreck(treck); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-		} else if (audioTime == audioLength && treck >= 6) {
-			treck = 0; // То присваиваем treck ноль
-			switchTreck(treck); //Меняем трек
-		}
-
-		audio.addEventListener('duration',function () {
-			fullTime.innerHTML = audio.audioLength;
-		},false);
-
-		audio.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
-		},false);
-
-		function secondsToTime(time) {
-
-			var h = Math.floor(time / (60 * 60)),
-				dm = time % (60 * 60),
-				m = Math.floor(dm / 60),
-				ds = dm % 60,
-				s = Math.ceil(ds);
-			if (s === 60) {
-				s = 0;
-				m = m + 1;
-			}
-			if (s < 10) {
-				s = '0' + s;
-			}
-			if (m === 60) {
-				m = 0;
-				h = h + 1;
-			}
-			if (m < 10) {
-				m = '0' + m;
-			}
-			if (h === 0) {
-				fulltime = m + ':' + s;
-			} else {
-				fulltime = h + ':' + m + ':' + s;
-			}
-			return fulltime;
-		};
-	},10)
-});
-
-
-track2.addEventListener("click",function () {
-	// Запуск песни
-	if (audio2.paused) {
-		audio2.play();
-		track2.classList.add('active-button');
-		audio.currentTime = "";
-		audio.fullTime = audio.duration;
-
-	} else {
-		audio2.pause();
-		track2.classList.remove('active-button');
-		clearInterval(audioPlay)
-	}
-	// Запуск интервала
-	audioPlay = setInterval(function () {
-		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio2.currentTime);
-		// Получаем всё время песни
-		let audioLength = Math.round(audio2.duration)
-		// Назначаем ширину элементу time
-		time.style.width = (audioTime * 100) / audioLength + '%';
-		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-		// И проверяем что переменная treck меньше четырёх
-		if (audioTime == audioLength && treck < 6) {
-			treck++; // То Увеличиваем переменную
-			switchTreck(treck); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-		} else if (audioTime == audioLength && treck >= 6) {
-			treck = 0; // То присваиваем treck ноль
-			switchTreck(treck); //Меняем трек
-		}
-
-		track2.addEventListener('duration',function () {
-			fullTime.innerHTML = audio2.audioLength;
-		},false);
-
-		track2.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio2.currentTime);
-		},false);
-
-		function secondsToTime(time) {
-
-			var h = Math.floor(time / (60 * 60)),
-				dm = time % (60 * 60),
-				m = Math.floor(dm / 60),
-				ds = dm % 60,
-				s = Math.ceil(ds);
-			if (s === 60) {
-				s = 0;
-				m = m + 1;
-			}
-			if (s < 10) {
-				s = '0' + s;
-			}
-			if (m === 60) {
-				m = 0;
-				h = h + 1;
-			}
-			if (m < 10) {
-				m = '0' + m;
-			}
-			if (h === 0) {
-				fulltime = m + ':' + s;
-			} else {
-				fulltime = h + ':' + m + ':' + s;
-			}
-			return fulltime;
-		};
-	},10)
-});
+// show current time
+function setCurrentTime(e) {
+	currentTime.innerHTML = audio.currentTime;
+}
 
 
 
-track3.addEventListener("click",function () {
-	// Запуск песни
-	if (audio3.paused) {
-		audio3.play();
-		audio3.currentTime = "";
-		track3.classList.add('active-button');
-
-	} else {
-		audio3.pause();
-		track3.classList.remove('active-button');
-		clearInterval(audioPlay)
-	}
-	// Запуск интервала
-	audioPlay = setInterval(function () {
-		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio3.currentTime);
-		// Получаем всё время песни
-		let audioLength = Math.round(audio3.duration)
-		// Назначаем ширину элементу time
-		time.style.width = (audioTime * 100) / audioLength + '%';
-		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-		// И проверяем что переменная treck меньше четырёх
-		if (audioTime == audioLength && treck < 6) {
-			treck++; // То Увеличиваем переменную
-			switchTreck(treck); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-		} else if (audioTime == audioLength && treck >= 6) {
-			treck = 0; // То присваиваем treck ноль
-			switchTreck(treck); //Меняем трек
-		}
-
-		audio.addEventListener('duration',function () {
-			fullTime.innerHTML = (audio3.audioLength);
-		},false);
-
-		audio.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio3.currentTime);
-		},false);
-
-		function secondsToTime(time) {
-
-			var h = Math.floor(time / (60 * 60)),
-				dm = time % (60 * 60),
-				m = Math.floor(dm / 60),
-				ds = dm % 60,
-				s = Math.ceil(ds);
-			if (s === 60) {
-				s = 0;
-				m = m + 1;
-			}
-			if (s < 10) {
-				s = '0' + s;
-			}
-			if (m === 60) {
-				m = 0;
-				h = h + 1;
-			}
-			if (m < 10) {
-				m = '0' + m;
-			}
-			if (h === 0) {
-				fulltime = m + ':' + s;
-			} else {
-				fulltime = h + ':' + m + ':' + s;
-			}
-			return fulltime;
-		};
-	},10)
-});
-track4.addEventListener("click",function () {
-	// Запуск песни
-	if (audio4.paused) {
-		audio4.play();
-		audio4.currentTime = "";
-		track4.classList.add('active-button');
-
-	} else {
-		audio4.pause();
-		track4.classList.remove('active-button');
-		clearInterval(audioPlay)
-	}
-	// Запуск интервала
-	audioPlay = setInterval(function () {
-		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio.currentTime);
-		// Получаем всё время песни
-		let audioLength = Math.round(audio.duration)
-		// Назначаем ширину элементу time
-		time.style.width = (audioTime * 100) / audioLength + '%';
-		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-		// И проверяем что переменная treck меньше четырёх
-		if (audioTime == audioLength && treck < 6) {
-			treck++; // То Увеличиваем переменную
-			switchTreck(treck); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-		} else if (audioTime == audioLength && treck >= 6) {
-			treck = 0; // То присваиваем treck ноль
-			switchTreck(treck); //Меняем трек
-		}
-
-		audio.addEventListener('duration',function () {
-			fullTime.innerHTML = (audio.audioLength);
-		},false);
-
-		audio.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
-		},false);
-
-		function secondsToTime(time) {
-
-			var h = Math.floor(time / (60 * 60)),
-				dm = time % (60 * 60),
-				m = Math.floor(dm / 60),
-				ds = dm % 60,
-				s = Math.ceil(ds);
-			if (s === 60) {
-				s = 0;
-				m = m + 1;
-			}
-			if (s < 10) {
-				s = '0' + s;
-			}
-			if (m === 60) {
-				m = 0;
-				h = h + 1;
-			}
-			if (m < 10) {
-				m = '0' + m;
-			}
-			if (h === 0) {
-				fulltime = m + ':' + s;
-			} else {
-				fulltime = h + ':' + m + ':' + s;
-			}
-			return fulltime;
-		};
-	},10)
-});
-track5.addEventListener("click",function () {
-	// Запуск песни
-	if (audio5.paused) {
-		audio5.play();
-		audio5.currentTime = "";
-		track5.classList.add('active-button');
-
-	} else {
-		audio5.pause();
-		track5.classList.remove('active-button');
-		clearInterval(audioPlay)
-	}
-	// Запуск интервала
-	audioPlay = setInterval(function () {
-		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio.currentTime);
-		// Получаем всё время песни
-		let audioLength = Math.round(audio.duration)
-		// Назначаем ширину элементу time
-		time.style.width = (audioTime * 100) / audioLength + '%';
-		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-		// И проверяем что переменная treck меньше четырёх
-		if (audioTime == audioLength && treck < 6) {
-			treck++; // То Увеличиваем переменную
-			switchTreck(treck); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-		} else if (audioTime == audioLength && treck >= 6) {
-			treck = 0; // То присваиваем treck ноль
-			switchTreck(treck); //Меняем трек
-		}
-
-		audio.addEventListener('duration',function () {
-			fullTime.innerHTML = (audio.audioLength);
-		},false);
-
-		audio.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
-		},false);
-
-		function secondsToTime(time) {
-
-			var h = Math.floor(time / (60 * 60)),
-				dm = time % (60 * 60),
-				m = Math.floor(dm / 60),
-				ds = dm % 60,
-				s = Math.ceil(ds);
-			if (s === 60) {
-				s = 0;
-				m = m + 1;
-			}
-			if (s < 10) {
-				s = '0' + s;
-			}
-			if (m === 60) {
-				m = 0;
-				h = h + 1;
-			}
-			if (m < 10) {
-				m = '0' + m;
-			}
-			if (h === 0) {
-				fulltime = m + ':' + s;
-			} else {
-				fulltime = h + ':' + m + ':' + s;
-			}
-			return fulltime;
-		};
-	},10)
-});
-
-
-track6.addEventListener("click",function () {
-	// Запуск песни
-	if (audio6.paused) {
-		audio6.play();
-		audio6.currentTime = "";
-		track6.classList.add('active-button');
-
-	} else {
-		audio6.pause();
-		track6.classList.remove('active-button');
-		clearInterval(audioPlay)
-	}
-	// Запуск интервала
-	audioPlay = setInterval(function () {
-		// Получаем значение на какой секунде песня
-		let audioTime = Math.round(audio.currentTime);
-		// Получаем всё время песни
-		let audioLength = Math.round(audio.duration)
-		// Назначаем ширину элементу time
-		time.style.width = (audioTime * 100) / audioLength + '%';
-		// Сравниваем, на какой секунде сейчас трек и всего сколько времени длится
-		// И проверяем что переменная treck меньше четырёх
-		if (audioTime == audioLength && treck < 6) {
-			treck++; // То Увеличиваем переменную
-			switchTreck(treck); // Меняем трек
-			// Иначе проверяем тоже самое, но переменная treck больше или равна четырём
-		} else if (audioTime == audioLength && treck >= 6) {
-			treck = 0; // То присваиваем treck ноль
-			switchTreck(treck); //Меняем трек
-		}
-
-		audio.addEventListener('duration',function () {
-			fullTime.innerHTML = (audio.audioLength);
-		},false);
-
-		audio.addEventListener('timeupdate',function () {
-			timePlaying.innerHTML = secondsToTime(audio.currentTime);
-		},false);
-
-		function secondsToTime(time) {
-
-			var h = Math.floor(time / (60 * 60)),
-				dm = time % (60 * 60),
-				m = Math.floor(dm / 60),
-				ds = dm % 60,
-				s = Math.ceil(ds);
-			if (s === 60) {
-				s = 0;
-				m = m + 1;
-			}
-			if (s < 10) {
-				s = '0' + s;
-			}
-			if (m === 60) {
-				m = 0;
-				h = h + 1;
-			}
-			if (m < 10) {
-				m = '0' + m;
-			}
-			if (h === 0) {
-				fulltime = m + ':' + s;
-			} else {
-				fulltime = h + ':' + m + ':' + s;
-			}
-			return fulltime;
-		};
-	},10)
-});
-
-
-
-
-
-
-let volume = document.getElementById('player-volume');
-volume.addEventListener("change",function (e) {
-	audio.volume = e.currentTarget.value / 100;
-})
+// Autoplay
+audio.addEventListener('ended', nextSong)
