@@ -153,6 +153,8 @@ audio.src = `app/player/audio/Zedd, Bright Lights — Follow You Down.mp3`
 } );
 
 
+
+
 // Next song
 function nextSong() {
   songIndex++
